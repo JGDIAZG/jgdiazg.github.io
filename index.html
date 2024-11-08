@@ -1,336 +1,421 @@
-
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-147723043-1"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-147723043-1');
-</script>
-
-<title>Curriculum Vitae José Díaz </title>
+<title>Portafolio</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="css/w3css.css">
-<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Roboto'>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://kit.fontawesome.com/211517b099.js" crossorigin="anonymous"></script>
-</head>
 <style>
-html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 </style>
-<body class="w3-light-grey">
+</head>
+<body class="w3-light-grey w3-content" style="max-width:1600px">
 
-<!-- Page Container -->
-<div class="w3-content w3-margin-top" style="max-width:1400px;">
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+  <div class="w3-container">
+    <a href="#" onclick="w3_close()" class="w3-hide-large w3-right w3-jumbo w3-padding w3-hover-grey" title="close menu">
+      <i class="fa fa-remove"></i>
+    </a>
+    <img src="../img/yo3.jpg" style="width:45%;" class="w3-round"><br><br>
+   <!-- <h4><b>José G. Díaz</b></h4>-->
+    <H3 class="w3-text-grey">José G. Díaz</h3>
+  </div> 
+  <div class="w3-bar-block">
+    <a href="#portfolio" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-text-teal"></i>PORTAFOLIO</a> 
+    <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-user fa-fw w3-margin-right"></i>SOBRE MI</a> 
+    <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-padding"><i class="fa fa-envelope fa-fw w3-margin-right"></i>CONTACTO</a>
+    <i class="fa-solid fa-briefcase fa-fw w3-large w3-margin-right w3-padding w3-text-teal"></i></b><a class="w3-text-blue" href="index.html">Currículo</a>
+  </div>
+  <div class="w3-panel w3-large">
+    <!--<i class="fa fa-facebook-official w3-hover-opacity"></i>
+    <i class="fa fa-instagram w3-hover-opacity"></i>
+    <i class="fa fa-snapchat w3-hover-opacity"></i>
+    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+    <i class="fa fa-twitter w3-hover-opacity"></i> 
+    <i class="fa fa-linkedin w3-hover-opacity"></i>  -->
+  </div>
+</nav>
 
-  <!-- The Grid -->
-  <div class="w3-row-padding">
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px">
+
+  <!-- Header -->
+  <header id="portfolio">
+    <a href="#"><img src="../img/yo3.jpg" style="width:65px;" class="w3-circle w3-right w3-margin w3-hide-large w3-hover-opacity"></a>
+    <span class="w3-button w3-hide-large w3-xxlarge w3-hover-text-grey" onclick="w3_open()"><i class="fa fa-bars"></i></span>
+    <div class="w3-container w3-padding-large ">
+      <div class= "w3-teal w3-container">
+    <h1><b>Portafolio de:</b></h1>
+    <h2>José G. Díaz</h2>
+    <!--<div class="w3-section w3-bottombar w3-padding-16">
+      <span class="w3-margin-right">Filtros:</span> 
+      <button class="w3-button w3-black">Todo</button>
+      <button class="w3-button w3-white"><i class="fa fa-diamond w3-margin-right"></i>Design</button>
+      <button class="w3-button w3-white w3-hide-small"><i class="fa fa-photo w3-margin-right"></i>Photos</button>
+      <button class="w3-button w3-white w3-hide-small"><i class="fa fa-map-pin w3-margin-right"></i>Art</button>
+    </div>--> 
+  </div>
+    </div> 
+  </header>
   
-    <!-- Left Column -->
-    <div class="w3-third">
-    
-      <div class="w3-white w3-text-grey w3-card-4">
-        <div class="w3-display-container">
-          <img src="img/yo3.jpg" style="width:100%" alt="José Díaz">
-          <div class="w3-display-bottomleft w3-container w3-text-black">
-            <h2 class="w3-text-grey"><b>José G. Díaz G.</b></h2>
+  <!-- First Photo Grid-->
+  <div class="w3-row-padding">
+   <div class="w3-container w3-center"> <h3><b>Trabajos Realizados</b></h3></div>
+    <div class="w3-third w3-container ">
+      <img src="img/1.jpg" alt="landing page" style="width:100%" class="">
+      <div class="w3-container w3-white w3-margin-bottom">
+        <p><b>Landing Page</b></p>
+        <p>Página de destino sin distracciones. Enfocada en los productos a través de elementos audiovisuales, imágenes y vídeo, que destacan sus características.  Un texto copywriting invitando a la compra mediante una llamada a la acción (call to action) utilizando un botón.<a href="https://mangoguia.systeme.io/andipan">Ver sitio web</a></p>
+      </div>
+    </div>
+    <div class="w3-third w3-container w3-margin-bottom">
+      <iframe src="https://mangodigital-github-io.pages.dev/" width="100%" height="515px"></iframe>
+     <!-- <img src="img/3.jpg" alt="videos" style="width:100%" class="">-->
+      <div class="w3-container w3-white">
+        <p><b>Agencia de Marketing</b></p>
+        <p>Sitio web desarrollado con un framework de HTML, CSS y JavaScript. Con el fin de ofrece servicios típicos asociados de las agencias de marketing digital y con redacciòn y SEO  dirigido para una región específica (geolocalizada), enfocándose en el público objetivo en la ciudad de Guatire, Venezuela.<a href="https://mangodigital-github-io.pages.dev/"> Ver página</a></p>
+        <p></p>
+      </div>
+    </div>
+    <div class="w3-third w3-container">
+      <img src="img/2.jpg" alt="articulo seo" style="width:100%" class="">
+      <div class="w3-container w3-white">
+        <p><b>Redacción SEO y Copywriting </b></p>
+        <p>Redacción SEO de artículos con fines de posicionamiento en Google.</p>
+        <p>Redacción persuasiva (copywiting) con la finalidad de que tu cliente ideal realice una acción.</p>
+        <p><a href="img/articulo-amazon.pdf">Ver articulo para Amazon</a></p>
+      </div>
+    </div>
+  </div>
+
+     <div class="w3-container w3-center"> <h3><b>Trabajos en Desarollo</b></h3></div>
+     <div class="w3-row-padding">
+       <div class="w3-container w3-half ">
+          <div class="w3-container w3-white w3-padding">
+             <div class="w3-container w3-white w3-row-padding">
+                <div class="w3-content w3-twothird">
+                  <iframe src="https://voyagerloscristianos.blogspot.com/" width="100%"></iframe>
+                  <a href="https://voyagerloscristianos.blogspot.com/" class="w3-btn w3-black w3-text-white w3-block" target="_blank" >Ver sitio</a>
+                </div>
+                <div class="w3-container w3-rest">
+                   <h4>Página en Blogger</h4>
+                   <p>Sitio web informativo sobre turismo en una localidad española</p>
+                </div>   
+             </div>
           </div>
         </div>
-        <div class="w3-container">
-          <p><i class="fa fa-briefcase fa-fw w3-margin-right w3-large w3-text-teal"></i>Técnico Informático</p>
-          <p><i class="fa fa-home fa-fw w3-margin-right w3-large w3-text-teal"></i>Caracas, Venezuela</p>
-          <p><i class="fa fa-envelope fa-fw w3-margin-right w3-large w3-text-teal"></i>jgdiazg@gmail.com</p>
-          <p> <!-- <i class="fa fa-phone fa-fw w3-margin-right w3-large w3-text-teal"></i> -->  <i class="fa fa-whatsapp fa-3x w3-margin-right w3-large w3-text-teal" aria-hidden="true"></i> <a href="https://api.whatsapp.com/send?phone=584141398895&text=Contacto%20C.V.%20%20Asunto:">WhatsApp </a></p>
-          
-          <hr>
+        <div class="w3-container w3-half ">
+          <div class="w3-container w3-white w3-padding">
+             <div class="w3-container w3-white w3-row-padding">
+                <div class="w3-content w3-twothird">
+                  <iframe src="https://mangodigital.win/" width="100%"></iframe>
+                  <a href="https://mangodigital.win/" target="_blank" >Ver sitio</a>
+                </div>
+                <div class="w3-container w3-rest">
+                   <h4>Agencia de Marketing Digital</h4>
+                   <p>Sitio web elaborado en WordPress</p>
+                </div>   
+             </div>
+          </div>
+        </div>
+        
+    </div>
+    <!--Tienda ONLINE-->
+    <br>
+    <div class="w3-container w3-center"> <h3><b>Tienda ONLINE</b></h3></div>
+    <div class="w3-row">
+      <div class="w3-container  " style="">
+        <div class="w3-container w3-white w3-padding">
+           <div class="w3-container w3-white ">
+              <div class="w3-content">
+                <iframe src="https://www.mangoguia.lat/pe" width="100%" height="700px"></iframe>
+                <a href="https://www.mangoguia.lat/pe" class="w3-btn w3-black w3-text-white w3-block" target="_blank" >Ver sitio</a>
+              </div>
+              <div class="w3-container w3-center">
+                 <h4>Ecommerce</h4>
+                 <p>Tienda de productos naturales - PERU</p>
+              </div>   
+           </div>
+        </div>
+      </div>
+    </div>
+  <!-- Second Photo Grid-->
+   <br>
+  <div class="w3-container w3-center"> <h3><b>Campañas Publicitarias en META Facebook Ads</b></h3></div>
+  <div class="w3-row-padding">
+    <div class="w3-third w3-container w3-margin-bottom">
+      <img src="img/aviso vaso metro.PNG" alt="aviso fb" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p><b>Aviso producto Weigth Loss Mexico</b></p>
+        <p>Campaña de objetivo tráfico con destino a página puente/blog -> landing page del producto para bajar de peso. GEO México</p>
+      </div>
+    </div>
+    <div class="w3-third w3-container w3-margin-bottom">
+      <img src="img/foot-trooper.png" alt="foot" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p><b>Aviso de producto antimicótico Perú</b></p>
+        <p>Campañna con objetivo de captar clientes potenciales vía messenger/whatsapp de producto antimicótico. GEO Perú</p>
+      </div>
+    </div>
+    <div class="w3-third w3-container">
+      <img src="img/duston-1.png" alt="duston" style="width:100%" class="w3-hover-opacity">
+      <div class="w3-container w3-white">
+        <p><b>Aviso de Gel para Articulaciones Venezuela</b></p>
+        <p>Campaña con objetivo de clientes potenciales formulario y otra messenger/whatsapp de producto para articulaciones. GEO Venezuela .</p>
+      </div>
+    </div>
+  </div> 
 
-          <p class="w3-large"><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i><b>Habilidades</b></p>
-          <p>Comunicativo y empático</p>
-          <p>Enfoque en la solución de problemas</p>
-          <p>Proactivo para el logro de los objetivos</p>
-          <p>Enfocado en los objetivos para el logro de las metas</p>
-          <br>
-          <p class="w3-large"><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i><b>Competencias técnicas</b></p>
-          <p>Marketing Digital</p>
+  <!-- Pagination --> <!-- paginacion hide
+  <div class="w3-center w3-padding-32">
+    <div class="w3-bar">
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">&laquo;</a>
+      <a href="#" class="w3-bar-item w3-black w3-button">1</a>
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">2</a>
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">3</a>
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">4</a>
+      <a href="#" class="w3-bar-item w3-button w3-hover-black">&raquo;</a>
+    </div>
+  </div> -->
+
+  <!-- Images of Me --
+  <div class="w3-row-padding w3-padding-16" id="about">
+    <div class="w3-col m6">
+      <img src="/w3images/avatar_g.jpg" alt="Me" style="width:100%">
+    </div>
+    <div class="w3-col m6">
+      <img src="/w3images/me2.jpg" alt="Me" style="width:100%">
+    </div>
+  </div> -->
+
+  <div class="w3-container w3-padding-panel"  style="margin-bottom:32px">
+    <div class="w3-panel w3-white">
+    <h3 id="about">Acerca de mi</h3>
+    <p>Soy una persona curiosa e intelectual, con un gran interés por el mundo que me rodea. Me considero creativo y expresivo, que disfruto investigando y aprendiendo, aplicando los conocimientos en algo provechoso y compartir con la naturaleza. También soy empático y me preocupo por los demás.</p>
+    <p>Me gradué como T.S.U. en informática en 1994 y desde entonces no me separo un computador, adaptándome a los avances que aporta la tecnología al mundo profesional y laboral. El mundo conectado ofrece nuevas oportunidades para desarrollarse, aportar y de hacer algo que te guste obteniendo beneficio por hacerlo.</p>
+    </div>
+    <hr>
+    <!--   parte oculta 
+    <h4>Technical Skills</h4> -->
+    <!-- Progress bars / Skills --
+    <p>Photography</p>
+    <div class="w3-grey">
+      <div class="w3-container w3-dark-grey w3-padding w3-center" style="width:95%">95%</div>
+    </div>
+    <p>Web Design</p>
+    <div class="w3-grey">
+      <div class="w3-container w3-dark-grey w3-padding w3-center" style="width:85%">85%</div>
+    </div>
+    <p>Photoshop</p>
+    <div class="w3-grey">
+      <div class="w3-container w3-dark-grey w3-padding w3-center" style="width:80%">80%</div>
+    </div>
+    <p>
+      <button class="w3-button w3-dark-grey w3-padding-large w3-margin-top w3-margin-bottom">
+        <i class="fa fa-download w3-margin-right"></i>Download Resume
+      </button>
+    </p>
+    <hr> -->
+    
+    <!--<h4>How much I charge</h4>-->
+    <!-- Pricing Tables -->
+   <!-- <div class="w3-row-padding" style="margin:0 -16px">
+      <div class="w3-third w3-margin-bottom">
+        <ul class="w3-ul w3-border w3-white w3-center w3-opacity w3-hover-opacity-off">
+          <li class="w3-black w3-xlarge w3-padding-32">Basic</li>
+          <li class="w3-padding-16">Web Design</li>
+          <li class="w3-padding-16">Photography</li>
+          <li class="w3-padding-16">1GB Storage</li>
+          <li class="w3-padding-16">Mail Support</li>
+          <li class="w3-padding-16">
+            <h2>$ 10</h2>
+            <span class="w3-opacity">per month</span>
+          </li>
+          <li class="w3-light-grey w3-padding-24">
+            <button class="w3-button w3-teal w3-padding-large w3-hover-black">Sign Up</button>
+          </li>
+        </ul>
+      </div> 
+      
+      <div class="w3-third w3-margin-bottom">
+        <ul class="w3-ul w3-border w3-white w3-center w3-opacity w3-hover-opacity-off">
+          <li class="w3-teal w3-xlarge w3-padding-32">Pro</li>
+          <li class="w3-padding-16">Web Design</li>
+          <li class="w3-padding-16">Photography</li>
+          <li class="w3-padding-16">50GB Storage</li>
+          <li class="w3-padding-16">Endless Support</li>
+          <li class="w3-padding-16">
+            <h2>$ 25</h2>
+            <span class="w3-opacity">per month</span>
+          </li>
+          <li class="w3-light-grey w3-padding-24">
+            <button class="w3-button w3-teal w3-padding-large w3-hover-black">Sign Up</button>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="w3-third">
+        <ul class="w3-ul w3-border w3-white w3-center w3-opacity w3-hover-opacity-off">
+          <li class="w3-black w3-xlarge w3-padding-32">Premium</li>
+          <li class="w3-padding-16">Web Design</li>
+          <li class="w3-padding-16">Photography</li>
+          <li class="w3-padding-16">Unlimited Storage</li>
+          <li class="w3-padding-16">Endless Support</li>
+          <li class="w3-padding-16">
+            <h2>$ 25</h2>
+            <span class="w3-opacity">per month</span>
+          </li>
+          <li class="w3-light-grey w3-padding-24">
+            <button class="w3-button w3-teal w3-padding-large w3-hover-black">Sign Up</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>   -->
+  <!--Fin del bloque cerraado -->
+<div class="w3-container w3-padding-large w3-panel w3-white">  <!-- bloque agregado de capacidades tecnicas -->
+  <h3 class="">Competencias técnicas</h3>
+  <div class="w3-container">
+  <div class="w3-row-padding w3-quarter">
+          <h4><i class="fa-solid fa-filter-circle-dollar w3-xlarge w3-text-teal"></i> Marketing Digital</h4>
             <ul>
               <li>Google Ads - Meta Ads</li>
-              
               <li>Inbound Marketing / Embudos de venta</li>
               <li>Redactor SEO - Copywriting</li>
             </ul>
-          <p>Desarrollo Web</p>
+  </div> 
+  <div class="w3-row-padding w3-quarter">      
+          <h4><i class="fa-solid fa-code w3-xlarge w3-text-teal"></i> Desarrollo Web</h4>
             <ul>
               <li>HTML/HTML5</li>
               <li>CSS - JavaScript</li>
               <li>Wordpress</li>
               <li>Joomla</li>
             </ul>
-            <p> Analista SEO</p>
-            <ul>
+  </div>             
+   
+   <div class="w3-row-padding w3-quarter ">
+         <h4><i class="fa-solid fa-chalkboard w3-xlarge w3-text-teal"></i> Analista SEO</h4>
+             <ul>
               <li>Keyword Research</li>
-              <li>Arquitectura de la información</li>
+              <li>Arquitectura Web</li>
               <li>SEO On/Off Page</li>
               <li>Optimización contenido SEO</li>
-              <li>Interlinking</li>
-              <li>Link Building</li>
-              <li>Google Analytics</li>
-              <li>Google Search Console</li>
-              <li>Google Adsense</li>
-            </ul>
-          <p>E-learning</p>
-             <ul>
-              <li>Moodle</li>
              </ul>  
-          <p>Edición de videos</p>
+    </div>  
+    <div class="w3-row-padding w3-quarter">        
+          <h4><i class="fa-solid fa-video w3-xlarge w3-text-teal"></i> Edición de videos</h4>
           <ul>
               <li>Youtube</li>
               <li>Filmora</li>
+              <li>Canva</li>
             </ul>
-            <hr>
-            
-            <h3><a class="w3-button w3-teal " href="portafolio.html"><b><i class="fa-solid fa-th-large fa-fw w3-large w3-margin-right w3-text-white"></i></b>Ver Portafolio</a></h3>
-            <hr>
-            <p><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i><b>Conocimientos</b></p>  
-            <p>Canva - Figma</p>
-          <P>Educación virtual SML: Moodle, administrador/profesor.</P>
-          <p>CMS: Joomla, Wordpress.</p>
-          <p>Comercio electrónico : Prestashop, OScommerce y OpenCart.</p>
-          <p>WHM Web Host Manager/cPanel.</p>
-          <p>Conocimientos básicos en: PHP, SQL, MySQL y Access.</p>
-          <p>Software ofimático: MS Word, Excell, Outlook, Power Point, Front Page, Visio, Open Office, Publisher.</p>
-          <p>Software de gestión y control de proyectos: MS Office Project 2010 y versiones anteriores.</p>
-          <hr>
-          <p class="w3-large w3-text-theme"><i class="fa fa-asterisk fa-fw w3-margin-right w3-text-teal"></i><b>Idiomas</b></p>
-          <p>Inglés: escritura técnica y lectura nivel medio</p>
-          <hr>
-
-        <h3 class="w3-large"><i class="fa fa-arrow-circle-down w3-margin-right w3-text-teal" ></i><a class="w3-text-blue w3-medium" href="cv-josediaz-2022.pdf" target="_blank">Curriculum versión .PDF</a></h3>
-        
-        
-        </div>
-       
-      </div><br>
-    </div><!-- End Left Column -->
-
-  <!-- Right Column -->
-    
-  <div class="w3-twothird">
-
-    <div class="w3-container w3-card w3-white w3-margin-bottom"><!-- Trabajos -->
-        <h2 class="w3-text-grey w3-padding-16"><i class="fa-solid fa-briefcase fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Experiencia Laboral</h2>
-
-           <div class="w3-container">
-              <h5 class="w3-opacity"><b>Consultora TECVIN357 C.A. / Consultor</b></h5>
-              <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Octubre 2011 - <span class="w3-tag w3-teal w3-round">2022</span></h6>
-              <p class="w3-justify">Planificación estratégica, comercialización de servicios de consultoría en sistema de gestión de la calidad, procesos, gerencia y capacitación en sector público y privado.</p>
+    </div>
+            <!-- Curriculo dolo se ve en celulares -->
+            <div class="w3-container w3-hide-large ">
               <hr>
-           </div>
-
-            <div class="w3-container">
-              <h5 class="w3-opacity"><b>Electrificación del Caroní EDELCA/ Empleado </b></h5>
-              <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Noviembre 1997 - Diciembre 2012</h6>
-              <p class="w3-justify">Dirección de Transmisión, División de Líneas de Transmisión, Dpto. de Construcción de
-                Líneas de Transmisión</p>
-               <p class="w3-justify"><b class="w3-text-grey">Técnico en Construcción:</b> Control de valuaciones de obra, informes de avance de obra, inspección en obra.</p> 
-                <p class="w3-justify"><b class="w3-text-grey">Coordinador Administrativo:</b> Administración de contratos, planificación, formulación, control de ejecución presupuestaria y financiera de inversiones y gastos.
-                Usuario de los sistemas de información de Control y Formulación Presupuestaria, SAP
-                Módulos FI, RH</p>
-                <p class="w3-justify"><b class="w3-text-grey">Coordinación con gerencias de:</b> Planificación, Finanzas, Adquisiciones, Recursos Humanos.</p>
-              <hr>
+              <i class="fa-solid fa-briefcase fa-fw w3-large w3-margin-right w3-padding w3-text-teal"></i><a class="w3-text-blue" href="index.html">Ver currículo</a>
             </div>
+   </div> 
+</div>   
 
-            <div class="w3-container">
-              <h5 class="w3-opacity"><b>UNEXPO Vice-rectorado “Luís Caballero Mejías”/Empleado</b></h5>
-              <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Marzo 1993 - Octubre 1995</h6>
-              <p class="w3-justify"><b class="w3-text-grey">Asistente al jefe de Control de Estudios:</b> Administración de procesos académicos. </p>
-              <hr>
-            </div>
+  <!-- Contact Section -->
+  <div class="w3-container w3-padding-large w3-grey">
+    <h3 id="contact" class="w3-text-white">Contáctame</h3>
+    <div class="w3-row-padding w3-center w3-padding-24" style="margin:0 -16px">
+      <div class="w3-third w3-teal  "> <!-- w3-dark-grey -->
+        <p><i class="fa fa-envelope w3-xxlarge w3-text-light-grey"></i></p>
+        <p>jgdiazg@gmail.com</p>
+      </div>
+      <div class="w3-third w3-teal">
+        <p><i class="fa fa-map-marker w3-xxlarge w3-text-light-grey"></i></p>
+        <p>Caracas</p>
+      </div>
+      <div class="w3-third  w3-teal"> <!-- w3-dark-grey -->
+        <p><i class=" fa-brands fa-whatsapp w3-xxlarge w3-text-light-grey"></i></p><i class=""></i> 
+        <p class=""><a class="" href="https://api.whatsapp.com/send?phone=584141398895&text=Contacto%20C.V.%20%20Asunto:">WhatsApp</a></p> <!-- fa fa-phone      -->
+      </div>
+    </div>
+    <hr class="w3-opacity">
+    <!--<form action="/action_page.php" target="_blank">
+      <div class="w3-section">
+        <label>Name</label>
+        <input class="w3-input w3-border" type="text" name="Name" required>
+      </div>
+      <div class="w3-section">
+        <label>Email</label>
+        <input class="w3-input w3-border" type="text" name="Email" required>
+      </div>
+      <div class="w3-section">
+        <label>Message</label>
+        <input class="w3-input w3-border" type="text" name="Message" required>
+      </div>
+      <button type="submit" class="w3-button w3-black w3-margin-bottom"><i class="fa fa-paper-plane w3-margin-right"></i>Send Message</button>
+    </form>
+  </div> -->
 
-          <div class="w3-container">
-            <h5 class="w3-opacity"><b>Ministerio de Educación/Empleado</b></h5>
-            <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Octubre 1981 - Febrero 1993</h6>
-            <p class="w3-justify"><b class="w3-text-grey">Oficinista:</b> Asistente del Jefe del Departamento de Almacén Central. </p>
-            <p class="w3-justify"><b class="w3-text-grey">Jefe de Departamento de Almacén Central:</b> Planificación, coordinación y distribución de bienes y materiales en el territorio de Venezuela.</p>
-          </div>
-    </div>  <!-- Fin Trabajos-->
+  <!-- Footer --
+  <footer class="w3-container w3-padding-32 w3-dark-grey">
+  <div class="w3-row-padding">
+    <div class="w3-third">
+      <h3>FOOTER</h3>
+      <p>Praesent tincidunt sed tellus ut rutrum. Sed vitae justo condimentum, porta lectus vitae, ultricies congue gravida diam non fringilla.</p>
+      <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+    </div>
+  
+    <div class="w3-third">
+      <h3>BLOG POSTS</h3>
+      <ul class="w3-ul w3-hoverable">
+        <li class="w3-padding-16">
+          <img src="/w3images/workshop.jpg" class="w3-left w3-margin-right" style="width:50px">
+          <span class="w3-large">Lorem</span><br>
+          <span>Sed mattis nunc</span>
+        </li>
+        <li class="w3-padding-16">
+          <img src="/w3images/gondol.jpg" class="w3-left w3-margin-right" style="width:50px">
+          <span class="w3-large">Ipsum</span><br>
+          <span>Praes tinci sed</span>
+        </li> 
+      </ul>
+    </div>
 
-          <!-- Educación aqui malo -->
-          <div class="w3-container w3-card w3-white w3-margin-bottom">   
-                <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-graduation-cap fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Educación</h2>
-                <div class="w3-container">
-                   <h5 class="w3-opacity"><b>Tecnico Superior Informática.</b></h5>
-                   <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>1995</h6>
-                  <p>Instituto Universitario Isaac Newton</p>
-                  <hr>
-                </div>
+    <div class="w3-third">
+      <h3>POPULAR TAGS</h3>
+      <p>
+        <span class="w3-tag w3-black w3-margin-bottom">Travel</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">New York</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">London</span>
+        <span class="w3-tag w3-grey w3-small w3-margin-bottom">IKEA</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">NORWAY</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">DIY</span>
+        <span class="w3-tag w3-grey w3-small w3-margin-bottom">Ideas</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">Baby</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">Family</span>
+        <span class="w3-tag w3-grey w3-small w3-margin-bottom">News</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">Clothing</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">Shopping</span>
+        <span class="w3-tag w3-grey w3-small w3-margin-bottom">Sports</span> <span class="w3-tag w3-grey w3-small w3-margin-bottom">Games</span>
+      </p>
+    </div>
 
-               <div class="w3-container">
-                 <h5 class="w3-opacity"><b>Bachiller</b></h5>
-                 <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>1978</h6>
-                 <p>Liceo Fermin Toro</p>
-                 <hr>
-               </div>
-          </div> 
-          <!-- Fin educación-->
+  </div>
+  </footer> -->
+  
+  <div class="w3-black w3-center w3-padding-24">José Díaz</a></div>
 
-        <!-- Cursos -->
-            <div class="w3-container w3-card w3-white">
-              <h2 class="w3-text-grey w3-padding-16"><i class="fa fa-leanpub fa-fw w3-margin-right w3-xxlarge w3-text-teal"></i>Cursos</h2>
-                  <div class="w3-container">
-                   <h5 class="w3-opacity"><b>Google Ads.</b></h5>
-                   <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Cursando</h6>
-                   <p>Google Skillshop</p>
-                    <hr>
-                  </div>
-                  <div class="w3-container">
-                   <h5 class="w3-opacity"><b>Google Analytics.</b></h5>
-                   <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>Cursando</h6>
-                   <p>Google Skillshop</p>
-                    <hr>
-                  </div>
-                    <div class="w3-container">
-                   <h5 class="w3-opacity"><b>Marketing en Redes Sociales</b></h5>
-                   <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2023</h6>
-                   <p>HubSpot Academy. Certificado </p>
-                    <hr>
-                  </div>
-                  <div class="w3-container">
-                   <h5 class="w3-opacity"><b>Diseño de estrategias de marketing enfocadas a los consumidores.</b></h5>
-                   <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2023</h6>
-                   <p>Universidad AnahuacX</p>
-                    <hr>
-                  </div>
-                   <div class="w3-container">
-                   <h5 class="w3-opacity"><b>Embudos de Ventas.</b></h5>
-                   <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2021</h6>
-                   <p>Academia de Marketing Digital de Emma Llensa</p>
-                    <hr>
-                  </div>
+<!-- End page content -->
+</div>
 
-                   <div class="w3-container">
-                   <h5 class="w3-opacity"><b>Segmentación estratégica en Facebook Ads.</b></h5>
-                   <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2021</h6>
-                   <p>Academia de Marketing Digital de Emma Llensa</p>
-                    <hr>
-                  </div>
-
-                  <div class="w3-container">
-                   <h5 class="w3-opacity"><b>Fundamentos de Marketing Digital.</b></h5>
-                   <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2019</h6>
-                   <p>Activate Google ID del certificado FAC N7W LDT</p>
-                    <hr>
-                  </div>
-                  
-                <div class="w3-container">
-                   <h5 class="w3-opacity"><b>Desarrollo Web I y II.</b></h5>
-                   <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2018</h6>
-                   <p>Activate Google / iDESWEB</p>
-                    <hr>
-                  </div>
-                
-                  <div class="w3-container">
-                   <h5 class="w3-opacity"><b>WEBMASTER, Experto en administración web WHM.</b></h5>
-                    <p>Bitácora y estructura de sitios web, Dominios web y paneles de control, Email subdominios y redirecciones, Gestión de bases de datos en servidores web, Instalación de software en servidores web, Administración del web host manager.</p>
-                    <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2017</h6>
-                    <p>FATLA</p>
-                   <hr>
-                  </div>
-
-                  <div class="w3-container">
-                   <h5 class="w3-opacity"><b>Tecnopedagogía. Experto en Educación Virtual</b></h5>
-                    <p>Tecnología aplicada a la educación, Recursos de Educación Virtual, Entornos virtuales de aprendizaje, Presencia digital e imagen corporativa, Alcance académico, capacitación e interacción, Simulación y tecnología con soporte virtual.</p>
-                   <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2016</h6>
-                    <p>FATLA</p>
-                    <hr>
-                  </div>
-
-                  <div class="w3-container">
-                   <h5 class="w3-opacity"><b>Administración de Plataforma Moodle 3.1.</b></h5>
-                   <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2016</h6>
-                   <p>FATLA/ASOMTV</p>
-                   <hr>
-                  </div>
-
-                  <div class="w3-container">
-                    <h5 class="w3-opacity"><b>Experto en medios y periodismo digital.</b></h5>
-                    <p>Edición de blogs y sitios web, Creación y publicación de revistas digitales online, Fotografía digital y exposición en línea, Radio en línea y podcasting , TV virtual, video digital y webcasting, Dibujo, diagramación y animación digital.</p>
-                    <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2016</h6>
-                   <p>FATLA</p>
-                   <hr>
-                  </div>
-
-                  <div class="w3-container">
-                   <h5 class="w3-opacity"><b>CASH ONLINE, Experto en comercio electrónico.</b></h5>
-                   <p>Plan estratégico de un ecommerce, Creación de un sitio web comercial, Activación de una tienda en línea, Marketing y posicionamiento global, Social & mobile commerce, Divisa electrónica y pagos online.</p>
-                    <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2016</h6>
-                   <p>FATLA</p>
-                    <hr>
-                  </div>
-                
-                  <div class="w3-container">
-                   <h5 class="w3-opacity"><b>Formación de emprendedores.</b></h5>
-                   <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2010</h6>
-                   <p>357 Megasur Consultores</p>
-                   <hr>
-                  </div>
-
-                  <div class="w3-container">
-                   <h5 class="w3-opacity"><b>Open Source.</b></h5>
-                   <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2007</h6>
-                   <p>Electrificación del Caroní EDELCA</p>
-                   <hr>
-                  </div>
-
-                  <div class="w3-container">
-                   <h5 class="w3-opacity"><b>Microsoft Acces. </b></h5>
-                   <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2005</h6>
-                    <p>EPSON de Venezuela</p>
-                    <hr>
-                  </div>
-
-                  <div class="w3-container">
-                   <h5 class="w3-opacity"><b>Diseño WEB.</b></h5>
-                    <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2002</h6>
-                    <p>EPSON de Venezuela</p>
-                    <hr>
-                  </div>
-
-                  <div class="w3-container">
-                   <h5 class="w3-opacity"><b>Microsoft Project</b></h5>
-                    <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>2001</h6>
-                    <p>Electrificación del Caroní EDELCA</p>
-                   <hr>
-                  </div>
-
-                  <div class="w3-container">
-                    <h5 class="w3-opacity"><b>Visual Basic.</b></h5>            
-                    <h6 class="w3-text-teal"><i class="fa fa-calendar fa-fw w3-margin-right"></i>1998</h6>
-                    <p>EPSON de Venezuela</p>
-                   <hr>
-                  </div>  
-            </div><!-- Fin cursos-->
-
-
-       </div> <!-- End Right Column -->
-    </div><!-- End Grid -->
-</div> <!-- End Page Container -->
-
-
-<footer class="w3-container w3-teal w3-center w3-margin-top">
-  <p></p>
- <!-- <i class="fa fa-facebook-official w3-hover-opacity"></i>
-  <i class="fa fa-instagram w3-hover-opacity"></i>
-  <i class="fa fa-snapchat w3-hover-opacity"></i>
-  <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-  <i class="fa fa-twitter w3-hover-opacity"></i>
-  <i class="fa fa-linkedin w3-hover-opacity"></i> -->
-  <p>Elaborado por: José Díaz</p> 
-</footer>
+<script>
+// Script to open and close sidebar
+function w3_open() {
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
+}
+ 
+function w3_close() {
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
+}
+</script>
 
 </body>
-</html>
