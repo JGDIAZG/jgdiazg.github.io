@@ -21,6 +21,7 @@
             }
         }
     </script>
+   
     <style>
         body {
             background-color: #F3F4F6;
@@ -40,7 +41,7 @@
     <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 </head>
 <body class="font-sans text-gray-800">
-
+ 
     <!-- Application logic -->
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -198,14 +199,21 @@
                     // Create an image from the canvas
                     const imageData = canvas.toDataURL('image/png');
 
+                    
+
                     // Update the confirmation modal to show the image and instructions
                     confirmationMessage.innerHTML = `
                         <h2 class="text-2xl font-bold mb-4">¡Pedido Listo!</h2>
-                        <p class="text-gray-600 mb-4">Por favor, toma una captura de pantalla de este resumen y envialo por WhatsApp 0414-13988-95</p>
+                        <p class="text-gray-600 mb-4">Por favor, toma una captura de pantalla de este resumen y envialo por:</p>
+                        <h3 class="text-2xl font-bold mb-4">WhatsApp 0414-139-88-95</span></h3>
                         <img src="${imageData}" alt="Captura de tu pedido" class="rounded-lg shadow-lg max-w-full">
-                        <p class="text-sm text-gray-500 mt-2">La imagen de arriba es el resumen de tu pedido. Envía esta imagen al WhatsApp 0414-139-88-95 </p>
+                       
+                        <p id="fecha"></p>
                     `;
-                    
+                    // Fecha del pedido
+                     const d = new Date();
+                    document.getElementById("fecha").innerHTML = d;
+// <p class="text-sm text-gray-500 mt-2">La imagen de arriba es el resumen de tu pedido. Envía esta imagen al <span class="text-2xl font-bold mb-4">WhatsApp 0414-139-88-95</span> </p>
                     cartModal.classList.add('hidden');
                     confirmationModal.classList.remove('hidden');
                     cart = {}; // Reset cart after "placing" the order
@@ -219,7 +227,7 @@
             });
         });
     </script>
-
+   
     <!-- Main App Container -->
     <div class="container mx-auto p-4 sm:p-6 lg:p-8">
         <!-- Header -->
