@@ -52,7 +52,10 @@
                 { id: 3, name: 'Jamón arepero ahumado Big Cerdy Kg', price: 8.44, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' }
             ];
 
-            const BS_RATE = 156.37; // Tasa de cambio de USD a Bs.
+            const BS_RATE = 157.72; // Tasa de cambio de USD a Bs.
+            document.getElementById("tasa").innerHTML = BS_RATE;
+            document.getElementById("tasa1").innerHTML = BS_RATE;
+
 
             let cart = {};
 
@@ -205,7 +208,7 @@
                     confirmationMessage.innerHTML = `
                         <h2 class="text-2xl font-bold mb-4">¡Pedido Listo!</h2>
                         <p class="text-gray-600 mb-4">Por favor, toma una captura de pantalla de este resumen y envialo por:</p>
-                        <p class="text-xl font-bold mb-4">WhatsApp 0414-139-88-95</p>
+                        <p class="text-xl font-bold mb-4">WhatsApp 0414-139-88-95S</p>
                         <img src="${imageData}" alt="Captura de tu pedido" class="rounded-lg shadow-lg max-w-full">
                        
                         <p id="fecha"></p>
@@ -243,7 +246,8 @@
             </div>
         </header>
         <!--Tasa B.C.V.-->
-          <div class="text-center items-center py-4 px-2 border-b-2 border-gray-200 mb-6 bg-sky-500/10 "><h4 class=" font-semibold ">TASA B.C.V</h4></div>
+          <div class="text-center items-center py-4 px-2 border-b-2 border-gray-200 mb-6 bg-sky-500/10 "><h4 class=" font-semibold ">TASA B.C.V.: <span id="tasa"></span></h4>
+        </div>
         <!-- Product Grid -->
         <div id="products-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             <!-- Product cards will be inserted here by JavaScript -->
@@ -258,6 +262,7 @@
                     </svg>
                 </button>
                 <h2 class="text-2xl font-bold mb-4">Tu Pedido</h2>
+                <p> $/Bs B.C.V.  <span id="tasa1"></span></p>
                 <ul id="cart-items-list" class="space-y-4 max-h-64 overflow-y-auto mb-4">
                     <!-- Cart items will be inserted here by JavaScript -->
                 </ul>
