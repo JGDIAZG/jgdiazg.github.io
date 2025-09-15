@@ -1,353 +1,51 @@
 <!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pedidos Móviles W3.CSS</title>
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter">
-    <style>
-        body, h1, h2, h3, h4, h5, h6 {
-            font-family: "Inter", sans-serif;
-        }
-        .w3-primary {
-            background-color: #4F46E5 !important;
-        }
-        .w3-primary-hover:hover {
-            background-color: #4338CA !important;
-        }
-        .w3-secondary {
-            color: #6B7280 !important;
-        }
-        .w3-card-product {
-            transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-        }
-        .w3-card-product:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-        }
-        .w3-badge-circle {
-            position: absolute;
-            top: -5px;
-            right: -5px;
-            height: 20px;
-            width: 20px;
-            padding: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-    </style>
-    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
-</head>
-<body class="w3-light-gray">
+<html>
+<title>Tienda Andipan</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<body>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const products = [
-                { id: 1, name: 'Mortadela de pollo Don Ramón 400gr', price: 1.28, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfaa492ac_1.png' },
-                { id: 2, name: 'Salchicha polaca Don Ramón 6 unidades', price: 0.97, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedf2c3e3d8_2.png' },
-                { id: 3, name: 'Jamón arepero ahumado Big Cerdy Kg', price: 8.44, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' },
-                { id: 4, name: 'Queso amarillo tipo americano 200gr', price: 2.50, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' },
-                { id: 5, name: 'Leche en polvo La Láctea 500gr', price: 3.10, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' },
-                { id: 6, name: 'Pan de molde Panorámico', price: 1.85, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' },
-                { id: 7, name: 'Mantequilla con sal Mantequilla Mía', price: 1.95, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' },
-                { id: 8, name: 'Huevos de granja 12 unidades', price: 2.15, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' },
-                { id: 9, name: 'Café molido El Rey 200gr', price: 3.50, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' },
-                { id: 10, name: 'Harina de trigo Doña María', price: 1.20, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' },
-                { id: 11, name: 'Azúcar refinada 1kg', price: 1.05, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' },
-                { id: 12, name: 'Aceite vegetal Oleícola 1L', price: 2.75, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' },
-                { id: 13, name: 'Arroz blanco Doña Ana 1kg', price: 1.10, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' },
-                { id: 14, name: 'Pasta spaghetti Capri 500gr', price: 0.85, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' },
-                { id: 15, name: 'Salsa de tomate El Rey', price: 1.50, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' },
-                { id: 16, name: 'Atún en aceite Alamar 140gr', price: 1.75, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' },
-                { id: 17, name: 'Sal fina de mesa 500gr', price: 0.60, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' },
-                { id: 18, name: 'Galletas surtidas La Especial', price: 2.20, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' },
-                { id: 19, name: 'Jugo de naranja natural 1L', price: 2.00, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' },
-                { id: 20, name: 'Refresco de cola Pepsi 2L', price: 1.90, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' },
-                { id: 21, name: 'Yogurt de fresa Yocito', price: 1.60, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' },
-                { id: 22, name: 'Pan de perro caliente Bimbo', price: 1.55, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' },
-                { id: 23, name: 'Tomates 1kg', price: 0.90, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' },
-                { id: 24, name: 'Cebollas 1kg', price: 0.80, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' },
-                { id: 25, name: 'Papas 1kg', price: 1.00, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' },
-                { id: 26, name: 'Plátanos 1kg', price: 1.25, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' },
-                { id: 27, name: 'Manzanas 1kg', price: 2.30, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' },
-                { id: 28, name: 'Naranjas 1kg', price: 1.40, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' },
-                { id: 29, name: 'Lechuga romana', price: 0.75, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' },
-                { id: 30, name: 'Pimientos verdes 1kg', price: 1.15, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' },
-                { id: 31, name: 'Carne molida de res 1kg', price: 7.90, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' },
-                { id: 32, name: 'Pollo entero', price: 6.50, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' },
-                { id: 33, name: 'Pescado filete de merluza', price: 8.70, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' },
-                { id: 34, name: 'Cereal de avena Hojitas de Maíz', price: 2.80, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' },
-                { id: 35, name: 'Mermelada de fresa Confitura', price: 1.80, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' },
-                { id: 36, name: 'Té de manzanilla Lipton 20 unidades', price: 1.45, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' },
-                { id: 37, name: 'Jabon de baño Palmolive 3 unidades', price: 2.10, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' },
-                { id: 38, name: 'Papel higiénico 4 rollos', price: 2.90, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' },
-                { id: 39, name: 'Detergente en polvo Ariel 500gr', price: 3.40, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' },
-                { id: 40, name: 'Limpia pisos Pinol 1L', price: 1.70, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' },
-                { id: 41, name: 'Servilletas de papel 100 unidades', price: 1.30, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' },
-                { id: 42, name: 'Pastilla para el dolor de cabeza Advil', price: 4.50, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' },
-                { id: 43, name: 'Curitas Band-Aid 20 unidades', price: 1.80, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' },
-                { id: 44, name: 'Protector solar Nivea', price: 5.60, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' },
-                { id: 45, name: 'Pasta dental Colgate', price: 2.05, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' },
-                { id: 46, name: 'Cepillo de dientes Oral B', price: 1.90, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' },
-                { id: 47, name: 'Enjuague bucal Listerine', price: 3.75, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' },
-                { id: 48, name: 'Crema hidratante Nivea', price: 4.25, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' },
-                { id: 49, name: 'Shampoo Elvive', price: 3.90, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' },
-                { id: 50, name: 'Acondicionador Elvive', price: 3.90, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' }
-            ];
-
-            const BS_RATE = 158.92; // Tasa de cambio de USD a Bs.
-            document.getElementById("tasa").innerHTML = BS_RATE;
-            document.getElementById("tasa1").innerHTML = BS_RATE;
-
-            let cart = {};
-
-            const productsContainer = document.getElementById('products-container');
-            const cartItemCount = document.getElementById('cart-item-count');
-            const cartModal = document.getElementById('cart-modal');
-            const closeModalButton = document.getElementById('close-modal');
-            const cartItemsList = document.getElementById('cart-items-list');
-            const totalAmountDisplay = document.getElementById('total-amount');
-            const placeOrderButton = document.getElementById('place-order-button');
-            const confirmationModal = document.getElementById('confirmation-modal');
-            const closeConfirmationButton = document.getElementById('close-confirmation-modal');
-            const confirmationMessage = document.getElementById('confirmation-message');
-
-            // Render products on the page
-            products.forEach(product => {
-                const productElement = document.createElement('div');
-                const priceBs = (product.price * BS_RATE).toFixed(2);
-                productElement.className = 'w3-card-4 w3-white w3-round-large w3-margin w3-padding w3-center w3-card-product w3-col s12 m6 l4';
-                productElement.innerHTML = `
-                    <img src="${product.imageUrl}" alt="${product.name}" class="w3-circle" style="width:96px; height:96px; object-fit: cover;">
-                    <h3 class="w3-large w3-margin-top w3-margin-bottom">${product.name}</h3>
-                    <p class="w3-secondary w3-small">REF: $${product.price.toFixed(2)}</p>
-                    <p class="w3-secondary w3-small">Bs. ${priceBs}</p>
-                    <div class="w3-row w3-margin-top w3-center">
-                        <div class="w3-col" style="width:33.3%">
-                            <button class="w3-button w3-light-gray w3-round-xxlarge w3-large w3-hover-gray" data-id="${product.id}" data-action="decrease">-</button>
-                        </div>
-                        <div class="w3-col" style="width:33.3%">
-                            <span id="quantity-${product.id}" class="w3-large">0</span>
-                        </div>
-                        <div class="w3-col" style="width:33.3%">
-                            <button class="w3-button w3-primary w3-round-xxlarge w3-large w3-hover-indigo" data-id="${product.id}" data-action="increase">+</button>
-                        </div>
-                    </div>
-                `;
-                productsContainer.appendChild(productElement);
-            });
-
-            // Handle quantity changes
-            productsContainer.addEventListener('click', (e) => {
-                const button = e.target.closest('button');
-                if (!button) return;
-
-                const productId = parseInt(button.dataset.id);
-                const action = button.dataset.action;
-                const product = products.find(p => p.id === productId);
-
-                if (action === 'increase') {
-                    if (cart[productId]) {
-                        cart[productId].quantity++;
-                    } else {
-                        cart[productId] = { ...product, quantity: 1 };
-                    }
-                } else if (action === 'decrease') {
-                    if (cart[productId] && cart[productId].quantity > 0) {
-                        cart[productId].quantity--;
-                        if (cart[productId].quantity === 0) {
-                            delete cart[productId];
-                        }
-                    }
-                }
-                updateCartDisplay();
-            });
-
-            // Update UI with current cart state
-            function updateCartDisplay() {
-                let totalItems = 0;
-                for (const productId in cart) {
-                    const quantity = cart[productId].quantity;
-                    totalItems += quantity;
-                    const quantitySpan = document.getElementById(`quantity-${productId}`);
-                    if (quantitySpan) {
-                        quantitySpan.textContent = quantity;
-                    }
-                }
-                cartItemCount.textContent = totalItems;
-                cartItemCount.style.display = totalItems > 0 ? 'flex' : 'none';
-                updateCartModal();
-            }
-
-            // Update the cart modal content
-            function updateCartModal() {
-                cartItemsList.innerHTML = '';
-                let totalAmountUSD = 0;
-                const itemsInCart = Object.values(cart);
-
-                if (itemsInCart.length === 0) {
-                    cartItemsList.innerHTML = '<p class="w3-center w3-text-gray">Tu carrito está vacío.</p>';
-                    placeOrderButton.disabled = true;
-                    placeOrderButton.classList.add('w3-disabled');
-                } else {
-                    placeOrderButton.disabled = false;
-                    placeOrderButton.classList.remove('w3-disabled');
-                    itemsInCart.forEach(item => {
-                        const totalItemPriceUSD = item.price * item.quantity;
-                        totalAmountUSD += totalItemPriceUSD;
-                        const totalItemPriceBs = (totalItemPriceUSD * BS_RATE).toFixed(2);
-                        const itemElement = document.createElement('li');
-                        itemElement.className = 'w3-row w3-padding-small w3-border-bottom';
-                        itemElement.innerHTML = `
-                            <div class="w3-col s8">
-                                <span class="w3-medium w3-text-dark-gray">${item.name}</span>
-                                <span class="w3-small w3-text-gray"> x${item.quantity}</span>
-                            </div>
-                            <div class="w3-col s4 w3-right-align">
-                                <span class="w3-small w3-text-dark-gray">REF: $${totalItemPriceUSD.toFixed(2)}</span><br>
-                                <span class="w3-tiny w3-text-gray">Bs. ${totalItemPriceBs}</span>
-                            </div>
-                        `;
-                        cartItemsList.appendChild(itemElement);
-                    });
-                }
-                const totalAmountBs = (totalAmountUSD * BS_RATE).toFixed(2);
-                totalAmountDisplay.innerHTML = `
-                    <div class="w3-row">
-                        <div class="w3-col s6">
-                            <span class="w3-large w3-text-dark-gray">Total:</span>
-                        </div>
-                        <div class="w3-col s6 w3-right-align">
-                            <span class="w3-medium w3-text-dark-gray">REF: $${totalAmountUSD.toFixed(2)}</span><br>
-                            <span class="w3-small w3-text-gray">Bs. ${totalAmountBs}</span>
-                        </div>
-                    </div>
-                `;
-            }
-
-            // Show cart modal
-            document.getElementById('cart-icon-button').addEventListener('click', () => {
-                cartModal.style.display = 'block';
-                updateCartModal();
-            });
-
-            // Close cart modal
-            closeModalButton.addEventListener('click', () => {
-                cartModal.style.display = 'none';
-            });
-
-            // Async function to handle the screenshot
-            const captureAndShowConfirmation = async () => {
-                const cartItemsList = document.getElementById('cart-items-list');
-
-                // Save the original styles
-                const originalStyle = {
-                    maxHeight: cartItemsList.style.maxHeight,
-                    overflowY: cartItemsList.style.overflowY
-                };
-
-                // Temporarily remove the styles to make all items visible
-                cartItemsList.style.maxHeight = 'none';
-                cartItemsList.style.overflowY = 'visible';
-                
-                // Hide buttons for the screenshot
-                closeModalButton.style.display = 'none';
-                placeOrderButton.style.display = 'none';
-
-                // Wait for the DOM to update after style changes
-                await new Promise(resolve => setTimeout(resolve, 10));
-
-                html2canvas(document.getElementById('cart-modal'), {
-                    logging: false,
-                    scale: 2 // Higher scale for better image quality
-                }).then(canvas => {
-                    // Restore original styles and buttons
-                    cartItemsList.style.maxHeight = originalStyle.maxHeight;
-                    cartItemsList.style.overflowY = originalStyle.overflowY;
-                    closeModalButton.style.display = 'block';
-                    placeOrderButton.style.display = 'block';
-
-                    const imageData = canvas.toDataURL('image/png');
-                    const now = new Date();
-                    const formattedDate = now.toLocaleDateString('es-ES', { year: 'numeric', month: 'long', day: 'numeric' });
-                    const formattedTime = now.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
-
-                    confirmationMessage.innerHTML = `
-                        <h2 class="w3-xlarge w3-margin-bottom w3-center">¡Pedido Listo!</h2>
-                        <p class="w3-center w3-text-dark-gray">Fecha: ${formattedDate} ${formattedTime}</p>
-                        <p class="w3-center w3-text-gray w3-margin-top w3-margin-bottom">Por favor, toma una captura de pantalla de este resumen y envíalo por:</p>
-                        <p class="w3-xlarge w3-center w3-text-dark-gray w3-bold w3-margin-bottom">WhatsApp 0414-139-88-95</p>
-                        <img src="${imageData}" alt="Captura de tu pedido" class="w3-image w3-round-large w3-card-4 w3-margin-top w3-margin-bottom">
-                    `;
-
-                    cartModal.style.display = 'none';
-                    confirmationModal.style.display = 'block';
-                    cart = {}; // Reset cart after "placing" the order
-                    updateCartDisplay();
-                });
-            };
-
-            // Event listener for the place order button
-            placeOrderButton.addEventListener('click', captureAndShowConfirmation);
-
-            // Close confirmation modal
-            closeConfirmationButton.addEventListener('click', () => {
-                confirmationModal.style.display = 'none';
-            });
-        });
-    </script>
-
-    <div class="w3-content w3-padding-large">
-        <header class="w3-bar w3-white w3-round-large w3-card-2 w3-margin-bottom w3-padding">
-            <div class="w3-bar-item w3-left">
-                <img src="https://d1yei2z3i6k35z.cloudfront.net/1007876/6499d870f27d9_AndiPan1.png" alt="Logo de la tienda" style="height:48px;">
-            </div>
-            <h2 class="w3-bar-item w3-left w3-hide-small w3-padding-large">Pedidos en Línea</h2>
-            <div class="w3-bar-item w3-right w3-relative">
-                <button id="cart-icon-button" class="w3-button w3-round-xxlarge w3-light-gray w3-hover-gray w3-xlarge">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w3-center" style="width:24px; height:24px;" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.182 1.254.125 1.745-.246.319-.232.748-.008 1.096c.219.348.563.568.956.568h8.568c.393 0 .737-.22.956-.568.224-.348.238-.777-.008-1.096L16 13h2" />
-                    </svg>
-                    <span id="cart-item-count" class="w3-badge w3-red w3-badge-circle w3-hide">0</span>
-                </button>
-            </div>
-        </header>
-        <div class="w3-container w3-dark-gray w3-round-large w3-margin-bottom w3-center w3-padding-small">
-            <h4 class="w3-large w3-text-white w3-bold">TASA B.C.V.: <span id="tasa"></span></h4>
-        </div>
-        <div id="products-container" class="w3-row-padding">
-            </div>
-
-        <div id="cart-modal" class="w3-modal">
-            <div class="w3-modal-content w3-card-4 w3-animate-zoom w3-round-large w3-white w3-padding" style="max-width:500px">
-                <header class="w3-container w3-padding-large w3-center">
-                    <span id="close-modal" class="w3-button w3-display-topright w3-round-large">&times;</span>
-                    <h2 class="w3-xlarge">Tu Pedido</h2>
-                    <p class="w3-small w3-text-gray">$/Bs B.C.V. <span id="tasa1"></span></p>
-                </header>
-                <div class="w3-container">
-                    <ul id="cart-items-list" class="w3-ul w3-hoverable w3-border-top w3-border-bottom" style="max-height: 300px; overflow-y: auto;">
-                        </ul>
-                </div>
-                <div class="w3-container w3-padding-large w3-border-top" id="total-amount">
-                    </div>
-                <footer class="w3-container w3-padding-large">
-                    <button id="place-order-button" class="w3-button w3-block w3-primary w3-round-large w3-hover-indigo w3-disabled">
-                        Hacer Pedido
-                    </button>
-                </footer>
-            </div>
-        </div>
-
-        <div id="confirmation-modal" class="w3-modal">
-            <div class="w3-modal-content w3-card-4 w3-animate-zoom w3-round-large w3-white w3-padding" style="max-width:500px">
-                <span id="close-confirmation-modal" class="w3-button w3-display-topright w3-round-large">&times;</span>
-                <div id="confirmation-message" class="w3-container w3-center w3-padding">
-                    </div>
-            </div>
-        </div>
+<div class="w3-container w3-blue w3-padding">
+  <header class="w3-row">
+    <div class="w3-col l6 m6 s6">
+      <h2>Tienda Andipan</h2>
     </div>
+    <div class="w3-col l6 m6 s6 w3-right-align">
+      <h2 class="w3-button w3-xlarge w3-round-large" onclick="openCart()">
+        🛒 <span id="cart-count" class="w3-badge w3-small w3-red w3-round-large w3-hide">0</span>
+      </h2>
+    </div>
+  </header>
+</div>
+
+<div class="w3-container w3-margin-top">
+  <h3>Productos Disponibles</h3>
+  <div id="product-list" class="w3-row-padding">
+    </div>
+</div>
+
+<div id="cart-modal" class="w3-modal">
+  <div class="w3-modal-content w3-animate-top w3-card-4">
+    <header class="w3-container w3-blue">
+      <span onclick="closeCart()" class="w3-button w3-display-topright">&times;</span>
+      <h2>Carrito de Compras</h2>
+    </header>
+    <div class="w3-container w3-padding">
+      <ul id="cart-items" class="w3-ul w3-card-4">
+        </ul>
+      <div class="w3-right-align w3-margin-top">
+        <p>Tasa BCV: <span id="tasa-bcv"></span></p>
+        <h4>Total en Dólares: ReF: <span id="total-usd">0.00</span></h4>
+        <h4>Total en Bolívares: <span id="total-bs">0.00</span></h4>
+      </div>
+    </div>
+    <footer class="w3-container w3-blue w3-padding">
+      <p>Gracias por tu compra.</p>
+    </footer>
+  </div>
+</div>
+
+<script src="script.js"></script>
+
 </body>
 </html>
