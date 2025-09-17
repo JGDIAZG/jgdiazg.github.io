@@ -1,51 +1,77 @@
 <!DOCTYPE html>
-<html>
-<title>Tienda Andipan</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="w3css.css">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+        .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+        .fa-anchor,.fa-coffee {font-size:200px}
+    </style>
+</head>
+</head>
 <body>
+<!-- Navbar -->
+<div class="w3-top">
+  <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+   <div class="w3-card"> 
+        <img src="https://d1yei2z3i6k35z.cloudfront.net/1007876/6499d870f27d9_AndiPan1.png" alt="Logo de la tienda" class="w3-bar-item w3-circle " style="width:85px"> 
+        
+   </div> 
+   <!-- <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+        <a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+    
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Pedidos</a>  
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 2</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 3</a>
+    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Link 4</a> 
+  </div> -->
 
-<div class="w3-container w3-blue w3-padding">
-  <header class="w3-row">
-    <div class="w3-col l6 m6 s6">
-      <h2>Tienda Andipan</h2>
-    </div>
-    <div class="w3-col l6 m6 s6 w3-right-align">
-      <h2 class="w3-button w3-xlarge w3-round-large" onclick="openCart()">
-        🛒 <span id="cart-count" class="w3-badge w3-small w3-red w3-round-large w3-hide">0</span>
-      </h2>
-    </div>
-  </header>
+  <!-- Navbar on small screens -->
+ <!--<div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+    
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 1</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 2</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 3</a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">Link 4</a>
+  </div> -->
 </div>
 
-<div class="w3-container w3-margin-top">
-  <h3>Productos Disponibles</h3>
-  <div id="product-list" class="w3-row-padding">
-    </div>
+<!-- Header -->
+<header class="w3-container w3-redq w3-center" style="padding:20px 16px">
+  <h1 class="w3-margin ">Lista de Precios</h1>
+  <!--<p class="w3-xlarge">Template by w3.css</p>
+  <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Get Started</button> -->
+</header>
+
+
+
+<!--<div class="w3-container ">
+    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRH23HhGpeNRzQXz2CBjOfNKusP7R4-IbvvG1xnU4Ol9_Lshghzy1kiWLichtpLqODW_deY84q-z-I7/pubhtml?widget=true&amp;headers=false" width="100%" height="auto" style="border:none;"></iframe> 
+</div>-->
+
+<div class="w3-container w3-bar w3-center w3-border  w3-blue" style=" ">
+    <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vRH23HhGpeNRzQXz2CBjOfNKusP7R4-IbvvG1xnU4Ol9_Lshghzy1kiWLichtpLqODW_deY84q-z-I7/pubhtml" style="width: 35%; height:500px; border:none"></iframe>
 </div>
 
-<div id="cart-modal" class="w3-modal">
-  <div class="w3-modal-content w3-animate-top w3-card-4">
-    <header class="w3-container w3-blue">
-      <span onclick="closeCart()" class="w3-button w3-display-topright">&times;</span>
-      <h2>Carrito de Compras</h2>
-    </header>
-    <div class="w3-container w3-padding">
-      <ul id="cart-items" class="w3-ul w3-card-4">
-        </ul>
-      <div class="w3-right-align w3-margin-top">
-        <p>Tasa BCV: <span id="tasa-bcv"></span></p>
-        <h4>Total en Dólares: ReF: <span id="total-usd">0.00</span></h4>
-        <h4>Total en Bolívares: <span id="total-bs">0.00</span></h4>
-      </div>
-    </div>
-    <footer class="w3-container w3-blue w3-padding">
-      <p>Gracias por tu compra.</p>
-    </footer>
-  </div>
-</div>
 
-<script src="script.js"></script>
+
+<script>
+// Used to toggle the menu on small screens when clicking on the menu button
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+</script>
 
 </body>
 </html>
