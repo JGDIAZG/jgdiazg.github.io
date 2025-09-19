@@ -10,11 +10,11 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-        body { font-family: Arial, sans-serif;  }
+   /*     body { font-family: Arial, sans-serif;  }
         h1 { color: #333; }
         table { width: 100%; border-collapse: collapse; margin-top: 20px; }
         th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
-        th { background-color: #f2f2f2; }
+        th { background-color: #f2f2f2; } */
     </style>
 </head>
 <body>
@@ -45,7 +45,8 @@
         async function fetchAndRenderTable() {
             const tableContainer = document.getElementById('table-container');
             const loading = document.getElementById('loading');
-            
+            const tabla = document.getElementById('miTabla');
+            tabla.classList.add('w3-table', 'w3-striped', 'w3-bordered')
             try {
                 const response = await fetch(API_URL);
                 const data = await response.json();
