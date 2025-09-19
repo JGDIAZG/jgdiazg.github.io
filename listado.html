@@ -45,8 +45,7 @@
         async function fetchAndRenderTable() {
             const tableContainer = document.getElementById('table-container');
             const loading = document.getElementById('loading');
-            const tabla = document.getElementById('miTabla');
-            tabla.classList.add('w3-table', 'w3-striped', 'w3-bordered');
+           
             try {
                 const response = await fetch(API_URL);
                 const data = await response.json();
