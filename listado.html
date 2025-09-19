@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla Actualizable de Google Sheets</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        h1 { color: #333; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 12px; text-align: left; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+
+    <h1>Tabla de Productos</h1>
+    
+    <div id="loading">Cargando datos...</div>
+    <div id="table-container"></div>
+
+    <script>
+        // *** REEMPLAZA ESTOS VALORES CON LOS TUYOS ***
+        const SPREADSHEET_ID = '12uTuKlB-xjW32b3wXo1D-ivgnVh4aI10Q9x-vBUn4_o'; 
+        const API_KEY = 'AIzaSyDvBjF4xtLKtvAzwaXMRvk8rk4UC4CDwH8';
+        const SHEET_NAME = 'productos'; // Asegúrate de que este nombre coincida con el de tu hoja
+        const RANGE = 'A1:E100'; // Ajusta el rango de celdas que quieres obtener
+
+        // URL de la API de Google Sheets
+        const API_URL = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${SHEET_NAME}!${RANGE}?key=${API_KEY}`;
+
+        // Función para obtener los datos y crear la tabla
+        async function fetchAndRenderTable() {
+            const tableContainer = document.getElementById('table-container');
+            const loading = document.getElementById('loading');
+            
+            try {
+                const response = await fetch(API_URL);
+                const data = await response.json();
+
+                if (data && data.values) {
+                    const rows = data.values;
+                    if (rows.length > 0) {
+                        let html = '<table>';
+                        
+                        // Encabezados de la tabla (primera fila)
+                        html += '<thead><tr>';
+                        rows[0].forEach(header => {
+                            html += `<th>${header}</th>`;
+                        });
+                        html += '</tr></thead>';
+
+                        // Filas de datos
+                        html += '<tbody>';
+                        for (let i = 1; i < rows.length; i++) {
+                            html += '<tr>';
+                            rows[i].forEach(cell => {
+                                html += `<td>${cell}</td>`;
+                            });
+                            html += '</tr>';
+                        }
+                        html += '</tbody>';
+                        html += '</table>';
+
+                        tableContainer.innerHTML = html;
+                    } else {
+                        tableContainer.innerHTML = '<p>No se encontraron datos.</p>';
+                    }
+                } else {
+                    tableContainer.innerHTML = '<p>Error al obtener datos o no se encontraron valores.</p>';
+                }
+            } catch (error) {
+                console.error('Error al obtener los datos de la API:', error);
+                tableContainer.innerHTML = '<p>Error al cargar la tabla. Por favor, revisa la consola para más detalles.</p>';
+            } finally {
+                loading.style.display = 'none'; // Oculta el mensaje de carga
+            }
+        }
+
+        // Llamar a la función cuando se carga la página
+        fetchAndRenderTable();
+    </script>
+
+</body>
+</html>
