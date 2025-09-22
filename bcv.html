@@ -34,7 +34,7 @@ fetch(urlApi)
     // Usamos 'let' en lugar de 'const' si necesitas reasignar el valor en algún punto del código
     // o para asegurar que el valor se asigne solo después de que la petición sea exitosa.
     const BCV = valorCelda;
-
+document.getElementById("tasa").innerHTML = BCV;
     // Puedes hacer algo con la constante BCV, como mostrarla en la consola
     console.log(`El valor de la celda Hoja2!B1 es: ${BCV}`);
     
@@ -44,6 +44,6 @@ fetch(urlApi)
     console.error('Ha ocurrido un error:', error);
   });
  </script>       
-  <h1> Valor Dolar BCV es: <span id="bcv"></span></h1>
+  <h1> Valor Dolar BCV es: <span id="tasa"></span></h1>
 </body>
 </html> 
