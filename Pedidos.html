@@ -45,19 +45,9 @@
                 { id: 2, name: 'Salchicha polaca Don Ramón 6 unidades', price: 0.97, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedf2c3e3d8_2.png' },
                 { id: 3, name: 'Jamón arepero ahumado Big Cerdy Kg', price: 8.44, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' }
             ];
-        // Obtiene la parte de la URL con los parámetros
-            const parametros = new URLSearchParams(window.location.search);
-            
-            // Lee el valor del parámetro 'valorBCV'
-            const valorBCV = parametros.get('valorBCV');
-            
-            console.log(`El valor recibido es: ${valorBCV}`);
-            
-            // Ahora puedes usar 'valorBCV' en tus cálculos
-           // const resultado = valorBCV * 2;
-           // console.log(`El resultado del cálculo es: ${resultado}`);
+       
                         
-            const BS_RATE = valorBCV; // Tasa de cambio de USD a Bs.
+            const BS_RATE = 160.50; // Tasa de cambio de USD a Bs.
             document.getElementById("tasa").innerHTML = BS_RATE;
             document.getElementById("tasa1").innerHTML = BS_RATE;
 
