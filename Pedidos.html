@@ -95,22 +95,7 @@ function updateCartDisplay() {
     updateCartModal();
 }
          
-
-            // Update UI with current cart state
-            function updateCartDisplay() {
-                let totalItems = 0;
-                for (const productId in cart) {
-                    const quantity = cart[productId].quantity;
-                    totalItems += quantity;
-                    const quantitySpan = document.getElementById(`quantity-${productId}`);
-                    if (quantitySpan) {
-                        quantitySpan.textContent = quantity;
-                    }
-                }
-                cartItemCount.textContent = totalItems;
-                cartItemCount.style.display = totalItems > 0 ? 'flex' : 'none';
-                updateCartModal();
-            }
+         
 
             // Update the cart modal content
             function updateCartModal() {
