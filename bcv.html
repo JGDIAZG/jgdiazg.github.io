@@ -6,47 +6,47 @@
     <title>BD/$ BCV</title>
 </head>
 <body>
-<script>  
+<script>
+// Constantes de tu API y hoja de cálculo
 const SPREADSHEET_ID = '12uTuKlB-xjW32b3wXo1D-ivgnVh4aI10Q9x-vBUn4_o'; 
 const API_KEY = 'AIzaSyDvBjF4xtLKtvAzwaXMRvk8rk4UC4CDwH8';
 const SHEET_NAME = 'Hoja2';
-const RANGE = 'B1'; // El rango es solo la celda B1
+const RANGE = 'B1';
 
-// Construimos la URL de la API para obtener solo el valor de la celda B1
+// Construye la URL de la API con los parámetros necesarios
 const urlApi = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${SHEET_NAME}!${RANGE}?key=${API_KEY}`;
 
-// Usamos fetch() para hacer la petición a la API
+// Usa la API Fetch para hacer la petición HTTP
 fetch(urlApi)
   .then(response => {
     // Si la respuesta no es exitosa, lanza un error
     if (!response.ok) {
-      throw new Error('Error al conectar con la API de Google Sheets.');
+      throw new Error(`Error en la petición: ${response.status}`);
     }
-    // Si todo está bien, parsea la respuesta a JSON
+    // Parsea la respuesta como JSON
     return response.json();
   })
   .then(data => {
-    // La respuesta de la API para una sola celda es un objeto con un array de arrays
-    // Por lo tanto, el valor que buscas está en data.values[0][0]
-    const valorCelda = data.values ? data.values[0][0] : null;
+    // Verifica si hay datos en la respuesta y extrae el valor de la celda
+    const valorCelda = data.values && data.values.length > 0 ? data.values[0][0] : null;
 
-    // Asignamos el valor a la constante BCV.
-    // Usamos 'let' en lugar de 'const' si necesitas reasignar el valor en algún punto del código
-    // o para asegurar que el valor se asigne solo después de que la petición sea exitosa.
- const BCV = valorCelda;
-// let BCV = valorCelda;
+    // Asigna el valor extraído a la constante BCV
+    const BCV = valorCelda;
 
-    // Puedes hacer algo con la constante BCV, como mostrarla en la consola
-    console.log(`El valor de la celda Hoja2!B1 es: ${BCV}`);
-    document.getElementById("tasa2").innerHTML = BCV;
+    // Puedes usar la constante BCV aquí. Por ejemplo, mostrarla en la consola:
+    console.log(`El valor de la celda B1 es: ${BCV}`);
+
+    // Si quieres mostrarlo en tu página web, puedes usar el siguiente código:
+    const elementoBCV = document.getElementById('bcv');
+     if (elementoBCV) {
+      elementoBCV.textContent = BCV;
+     }
   })
   .catch(error => {
-    // Captura cualquier error en la petición o en el procesamiento
-    console.error('Ha ocurrido un error:', error);
+    // Captura y maneja cualquier error de la API o la red
+    console.error('Error al obtener el valor de la celda:', error);
   });
-    console.log("eee");
- </script>       
-  <h1> Valor Dolar BCV es: <span id="tasa2"></span></h1>
-    <p   ></p>
+</script>
+<p id="bcv"></p>
 </body>
 </html> 
