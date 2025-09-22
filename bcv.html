@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BD/$ BCV</title>
+</head>
+<body>
+// La URL de tu API que devuelve los datos del libro
+const urlApi = 'https://sheets.googleapis.com/v4/spreadsheets/12uTuKlB-xjW32b3wXo1D-ivgnVh4aI10Q9x-vBUn4_o/values/Hoja2!B1'; 
+
+// Hacemos la petición
+fetch(urlApi)
+  .then(response => {
+    // Verificamos si la respuesta es exitosa
+    if (!response.ok) {
+      throw new Error('Error en la respuesta de la red: ' + response.statusText);
+    }
+    // Convertimos la respuesta a formato JSON
+    return response.json();
+  })
+  .then(data => {
+    // 'data' contiene el objeto JSON con los datos de tu libro
+    console.log(data);
+    
+    // Aquí actualizas tu HTML con el dato que necesitas
+    // Por ejemplo, si el dato es un nombre en la propiedad 'nombre_libro'
+    const nombreLibro = data.nombre_libro;
+    document.getElementById('nombre-libro').textContent = nombreLibro;
+  })
+  .catch(error => {
+    // Manejo de errores en caso de que la petición falle
+    console.error('Hubo un problema con la petición Fetch:', error);
+  });
+  
+  <h1> Valor Dolar BCV es: <span>id="bcv"</span></h1>
+</body>
+  
