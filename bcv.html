@@ -49,6 +49,9 @@ fetch(urlApi)
     // Captura y maneja cualquier error de la API o la red
     console.error('Error al obtener el valor de la celda:', error);
   });
+
+    // Construye la URL de la siguiente página, pasando BCV como un parámetro
+window.location.href = `Pedidos.html?valorBCV=${BCV}`;
 </script>
   <p id="bcv"></p>
 </body>
