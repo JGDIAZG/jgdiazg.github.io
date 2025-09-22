@@ -7,32 +7,46 @@
 </head>
 <body>
 <script>  
-// La URL de tu API que devuelve los datos del libro
-const urlApi = 'https://sheets.googleapis.com/v4/spreadsheets/12uTuKlB-xjW32b3wXo1D-ivgnVh4aI10Q9x-vBUn4_o/values/Hoja2!B1'; 
+// El URL de la API de Google Sheets para obtener el valor de la celda B1 en Hoja2
+const urlApi = 'https://sheets.googleapis.com/v4/spreadsheets/12uTuKlB-xjW32b3wXo1D-ivgnVh4aI10Q9x-vBUn4_o/values/Hoja2!B1?key=TU_CLAVE_API';
 
-// Hacemos la petición
-fetch(urlApi)
-  .then(response => {
-    // Verificamos si la respuesta es exitosa
+// Esta es la constante donde se guardará el valor
+let BCV;
+
+// Función asíncrona para obtener y asignar el valor
+async function obtenerValorBCV() {
+  try {
+    // Realiza la petición a la API
+    const response = await fetch(urlApi);
+
+    // Si la respuesta no es exitosa, lanza un error
     if (!response.ok) {
-      throw new Error('Error en la respuesta de la red: ' + response.statusText);
+      throw new Error(`Error HTTP: ${response.status}`);
     }
-    // Convertimos la respuesta a formato JSON
-    return response.json();
-  })
-  .then(data => {
-    // 'data' contiene el objeto JSON con los datos de tu libro
-    console.log(data);
-    
-    // Aquí actualizas tu HTML con el dato que necesitas
-    // Por ejemplo, si el dato es un nombre en la propiedad 'nombre_libro'
-    const nombreLibro = data.nombre_libro;
-    document.getElementById('nombre-libro').textContent = nombreLibro;
-  })
-  .catch(error => {
-    // Manejo de errores en caso de que la petición falle
-    console.error('Hubo un problema con la petición Fetch:', error);
-  });
+
+    // Convierte la respuesta a formato JSON
+    const data = await response.json();
+
+    // Extrae el valor de la celda B1 y lo asigna a la constante BCV
+    // La respuesta de la API tiene una estructura de matriz.
+    if (data.values && data.values.length > 0 && data.values[0].length > 0) {
+      BCV = data.values[0][0];
+      console.log(`El valor de la celda Hoja2!B1 es: ${BCV}`);
+      
+      // Aquí puedes agregar el código para usar el valor BCV en tu aplicación web
+      // Por ejemplo, para mostrarlo en un elemento HTML
+      // document.getElementById('valor-bcv').textContent = BCV;
+    } else {
+      console.log('No se encontraron valores en el rango especificado.');
+    }
+
+  } catch (error) {
+    console.error('Ha ocurrido un error al obtener el valor:', error);
+  }
+}
+
+// Llama a la función para ejecutar el código
+obtenerValorBCV();
  </script>       
   <h1> Valor Dolar BCV es: <spanid="bcv"></span></h1>
 </body>
