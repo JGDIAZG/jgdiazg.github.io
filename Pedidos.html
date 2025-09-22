@@ -77,23 +77,24 @@
                 productsContainer.appendChild(productElement);
             });
 
-           // Update UI with current cart state
-            function updateCartDisplay() {
-            let totalItems = 0;
-            // Iterate over all products to ensure their quantity display is correct
-            products.forEach(product => {
-            const quantity = cart[product.id] ? cart[product.id].quantity : 0;
-            totalItems += quantity;
-            const quantitySpan = document.getElementById(`quantity-${product.id}`);
-            if (quantitySpan) {
-                quantitySpan.textContent = quantity;
-                }
-            });
+            // Update UI with current cart state
+function updateCartDisplay() {
+    let totalItems = 0;
+    // Iterate over all products to ensure their quantity display is correct
+    products.forEach(product => {
+        const quantity = cart[product.id] ? cart[product.id].quantity : 0;
+        totalItems += quantity;
+        const quantitySpan = document.getElementById(`quantity-${product.id}`);
+        if (quantitySpan) {
+            quantitySpan.textContent = quantity;
+        }
+    });
 
-            cartItemCount.textContent = totalItems;
-            cartItemCount.style.display = totalItems > 0 ? 'flex' : 'none';
-            updateCartModal();
-            }
+    cartItemCount.textContent = totalItems;
+    cartItemCount.style.display = totalItems > 0 ? 'flex' : 'none';
+    updateCartModal();
+}
+         
 
             // Update UI with current cart state
             function updateCartDisplay() {
