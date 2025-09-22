@@ -39,15 +39,43 @@
 <body class="font-sans text-gray-800">
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', async () => {
+            
             const products = [
                 { id: 1, name: 'Mortadela de pollo Don Ramón 400gr', price: 1.28, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfaa492ac_1.png' },
                 { id: 2, name: 'Salchicha polaca Don Ramón 6 unidades', price: 0.97, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedf2c3e3d8_2.png' },
                 { id: 3, name: 'Jamón arepero ahumado Big Cerdy Kg', price: 8.44, imageUrl: 'https://d1yei2z3i6k35z.cloudfront.net/1007876/68bedfbb915c2_3.png' }
             ];
-       
-                        
-            const BS_RATE = 160.50; // Tasa de cambio de USD a Bs.
+
+            let BS_RATE; // Declara la variable para la tasa de cambio
+
+            // Constantes de tu API y hoja de cálculo
+            const SPREADSHEET_ID = '12uTuKlB-xjW32b3wXo1D-ivgnVh4aI10Q9x-vBUn4_o';
+            const API_KEY = 'AIzaSyDvBjF4xtLKtvAzwaXMRvk8rk4UC4CDwH8';
+            const SHEET_NAME = 'hoja2';
+            const RANGE = 'B1';
+
+            // Construye la URL de la API
+            const urlApi = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${SHEET_NAME}!${RANGE}?key=${API_KEY}`;
+            
+            try {
+                // Realiza la solicitud a la API
+                const response = await fetch(urlApi);
+                const data = await response.json();
+
+                // Verifica si la respuesta contiene valores y asigna la tasa
+                if (data.values && data.values.length > 0) {
+                    BS_RATE = parseFloat(data.values[0][0]); // Convierte el valor a un número
+                } else {
+                    console.error('No se encontraron datos en la celda especificada.');
+                    BS_RATE = 0.0; // Valor por defecto en caso de error
+                }
+            } catch (error) {
+                console.error('Error al obtener la tasa de cambio de la API:', error);
+                BS_RATE = 0.0; // Valor por defecto si hay un error de conexión
+            }
+
+            // AHORA QUE TENEMOS EL VALOR, CONTINUAMOS CON EL CÓDIGO RESTANTE
             document.getElementById("tasa").innerHTML = BS_RATE;
             document.getElementById("tasa1").innerHTML = BS_RATE;
 
@@ -106,43 +134,22 @@
                 updateCartDisplay();
             });
 
-           /* // Update UI with current cart state
             function updateCartDisplay() {
                 let totalItems = 0;
-                for (const productId in cart) {
-                    const quantity = cart[productId].quantity;
+                products.forEach(product => {
+                    const quantity = cart[product.id] ? cart[product.id].quantity : 0;
                     totalItems += quantity;
-                    const quantitySpan = document.getElementById(`quantity-${productId}`);
+                    const quantitySpan = document.getElementById(`quantity-${product.id}`);
                     if (quantitySpan) {
                         quantitySpan.textContent = quantity;
                     }
-                }
+                });
+
                 cartItemCount.textContent = totalItems;
                 cartItemCount.style.display = totalItems > 0 ? 'flex' : 'none';
                 updateCartModal();
             }
-                */
 
-            // Update UI with current cart state (modificado valor 0)
-function updateCartDisplay() {
-    let totalItems = 0;
-    // Iterate over all products to ensure their quantity display is correct
-    products.forEach(product => {
-        const quantity = cart[product.id] ? cart[product.id].quantity : 0;
-        totalItems += quantity;
-        const quantitySpan = document.getElementById(`quantity-${product.id}`);
-        if (quantitySpan) {
-            quantitySpan.textContent = quantity;
-        }
-    });
-
-    cartItemCount.textContent = totalItems;
-    cartItemCount.style.display = totalItems > 0 ? 'flex' : 'none';
-    updateCartModal();
-}
-
-
-            // Update the cart modal content
             function updateCartModal() {
                 cartItemsList.innerHTML = '';
                 let totalAmountUSD = 0;
@@ -197,7 +204,7 @@ function updateCartDisplay() {
 
             // Place order logic - now it sends a WhatsApp message
             placeOrderButton.addEventListener('click', () => {
-                const phoneNumber = '584141398895'; // Número de teléfono para WhatsApp (sin el +)
+                const phoneNumber = '584141398895';
                 const itemsInCart = Object.values(cart);
                 let totalAmountUSD = 0;
 
@@ -210,7 +217,7 @@ function updateCartDisplay() {
                     totalAmountUSD += totalItemPriceUSD;
                     const totalItemPriceBs = (totalItemPriceUSD * BS_RATE).toFixed(2);
                     message += `  - ${item.name} (x${item.quantity})\n`;
-                    message += `    REF: $${totalItemPriceUSD.toFixed(2)} / Bs. ${totalItemPriceBs}\n\n`; // Agregado un salto de línea adicional aquí
+                    message += `    REF: $${totalItemPriceUSD.toFixed(2)} / Bs. ${totalItemPriceBs}\n\n`;
                 });
 
                 const totalAmountBs = (totalAmountUSD * BS_RATE).toFixed(2);
@@ -218,14 +225,11 @@ function updateCartDisplay() {
                 message += `  REF: $${totalAmountUSD.toFixed(2)}\n`;
                 message += `  Bs. ${totalAmountBs}\n`;
                 
-                // Encode the message for the URL
                 const encodedMessage = encodeURIComponent(message);
                 const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
 
-                // Open WhatsApp
                 window.open(whatsappUrl, '_blank');
                 
-                // Reset cart and update display
                 cart = {};
                 updateCartDisplay();
                 cartModal.classList.add('hidden');
@@ -237,7 +241,7 @@ function updateCartDisplay() {
     <div class="container mx-auto p-4 sm:p-6 lg:p-8">
         <header class="flex justify-between items-center py-4 px-2 border-b-2 border-gray-200 mb-6 bg-white">
             <img src="https://d1yei2z3i6k35z.cloudfront.net/1007876/6499d870f27d9_AndiPan1.png" alt="Logo de la tienda" class="h-10 sm:h-12 w-auto">
-            <h2  class="text-xl font-semibold">Pedidos en Línea</h2>
+            <h2 class="text-xl font-semibold">Pedidos en Línea</h2>
             <div class="relative">
                 <button id="cart-icon-button" class="bg-gray-100 p-2 rounded-full hover:bg-gray-200 transition-colors relative">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -247,9 +251,9 @@ function updateCartDisplay() {
                 </button>
             </div>
         </header>
-       
-            <p class="mb-2 text-center text-sm font-semibold">TASA B.C.V.: <span id="tasa"></span></p>
-       
+        
+        <p class="mb-2 text-center text-sm font-semibold">TASA B.C.V.: <span id="tasa"></span></p>
+        
         <div id="products-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
             </div>
 
