@@ -7,47 +7,42 @@
 </head>
 <body>
 <script>  
-// El URL de la API de Google Sheets para obtener el valor de la celda B1 en Hoja2
-const urlApi = 'https://sheets.googleapis.com/v4/spreadsheets/12uTuKlB-xjW32b3wXo1D-ivgnVh4aI10Q9x-vBUn4_o/values/Hoja2!B1?key=TU_CLAVE_API';
+const SPREADSHEET_ID = '12uTuKlB-xjW32b3wXo1D-ivgnVh4aI10Q9x-vBUn4_o'; 
+const API_KEY = 'AIzaSyDvBjF4xtLKtvAzwaXMRvk8rk4UC4CDwH8';
+const SHEET_NAME = 'Hoja2';
+const RANGE = 'B1'; // El rango es solo la celda B1
 
-// Esta es la constante donde se guardará el valor
-let BCV;
+// Construimos la URL de la API para obtener solo el valor de la celda B1
+const urlApi = `https://sheets.googleapis.com/v4/spreadsheets/${SPREADSHEET_ID}/values/${SHEET_NAME}!${RANGE}?key=${API_KEY}`;
 
-// Función asíncrona para obtener y asignar el valor
-async function obtenerValorBCV() {
-  try {
-    // Realiza la petición a la API
-    const response = await fetch(urlApi);
-
+// Usamos fetch() para hacer la petición a la API
+fetch(urlApi)
+  .then(response => {
     // Si la respuesta no es exitosa, lanza un error
     if (!response.ok) {
-      throw new Error(`Error HTTP: ${response.status}`);
+      throw new Error('Error al conectar con la API de Google Sheets.');
     }
+    // Si todo está bien, parsea la respuesta a JSON
+    return response.json();
+  })
+  .then(data => {
+    // La respuesta de la API para una sola celda es un objeto con un array de arrays
+    // Por lo tanto, el valor que buscas está en data.values[0][0]
+    const valorCelda = data.values ? data.values[0][0] : null;
 
-    // Convierte la respuesta a formato JSON
-    const data = await response.json();
+    // Asignamos el valor a la constante BCV.
+    // Usamos 'let' en lugar de 'const' si necesitas reasignar el valor en algún punto del código
+    // o para asegurar que el valor se asigne solo después de que la petición sea exitosa.
+    const BCV = valorCelda;
 
-    // Extrae el valor de la celda B1 y lo asigna a la constante BCV
-    // La respuesta de la API tiene una estructura de matriz.
-    if (data.values && data.values.length > 0 && data.values[0].length > 0) {
-      BCV = data.values[0][0];
-      console.log(`El valor de la celda Hoja2!B1 es: ${BCV}`);
-      
-      // Aquí puedes agregar el código para usar el valor BCV en tu aplicación web
-      // Por ejemplo, para mostrarlo en un elemento HTML
-       document.getElementById('bcv').textContent = BCV;
-        
-    } else {
-      console.log('No se encontraron valores en el rango especificado.');
-    }
-
-  } catch (error) {
-    console.error('Ha ocurrido un error al obtener el valor:', error);
-  }
-}
-
-// Llama a la función para ejecutar el código
-obtenerValorBCV();
+    // Puedes hacer algo con la constante BCV, como mostrarla en la consola
+    console.log(`El valor de la celda Hoja2!B1 es: ${BCV}`);
+    
+  })
+  .catch(error => {
+    // Captura cualquier error en la petición o en el procesamiento
+    console.error('Ha ocurrido un error:', error);
+  });
  </script>       
   <h1> Valor Dolar BCV es: <span id="bcv"></span></h1>
 </body>
