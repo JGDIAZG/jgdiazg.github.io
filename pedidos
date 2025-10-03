@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedidos Andipan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        primary: '#4F46E5',
+                        secondary: '#6B7280',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #F3F4F6;
+        }
+        .product-card {
+            transition: transform 0.2s ease-in-out;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .order-button {
+            transition: background-color 0.2s ease-in-out;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-800">
+
+    <script>
+      document.addEventListener('DOMContentLoaded', async () => {
+    
+    let products = []; // La lista de productos ahora se llenará desde la hoja de cálculo
+    let BS_RATE; // Variable para la tasa de cambio
+
+    // Constantes de tu API para TASA (Hoja 2)
+    const TASA_SPREADSHEET_ID = '12uTuKlB-xjW32b3wXo1D-ivgnVh4aI10Q9x-vBUn4_o';
+    const TASA_API_KEY = 'AIzaSyDvBjF4xtLKtvAzwaXMRvk8rk4UC4CDwH8';
+    const TASA_SHEET_NAME = 'hoja2';
+    const TASA_RANGE = 'B1';
+
+    // Constantes de tu API para PRODUCTOS (Nueva Hoja)
+    const PROD_SHEET_NAME = 'tabla_prod_pedidos'; // Nuevo nombre de hoja
+    const PROD_RANGE = 'A1:G300'; // Nuevo rango de celdas
+    
+    // URLs de la API
+    const urlApiTasa = `https://sheets.googleapis.com/v4/spreadsheets/${TASA_SPREADSHEET_ID}/values/${TASA_SHEET_NAME}!${TASA_RANGE}?key=${TASA_API_KEY}`;
+    const urlApiProductos = `https://sheets.googleapis.com/v4/spreadsheets/${TASA_SPREADSHEET_ID}/values/${PROD_SHEET_NAME}!${PROD_RANGE}?key=${TASA_API_KEY}`; // Reutilizamos ID y Key
+
+    /* --- 1. OBTENER LA TASA DE CAMBIO --- */
+    try {
+        const response = await fetch(urlApiTasa);
+        const data = await response.json();
+
+        if (data.values && data.values.length > 0) {
+            BS_RATE = parseFloat(data.values[0][0]);
+        } else {
+            console.error('No se encontraron datos de la tasa.');
+            BS_RATE = 0.0;
+        }
+    } catch (error) {
+        console.error('Error al obtener la tasa de cambio de la API:', error);
+        BS_RATE = 0.0;
+    }
+
+    // Mostrar la tasa en la página
+    document.getElementById("tasa").innerHTML = BS_RATE;
+    document.getElementById("tasa1").innerHTML = BS_RATE;
+
+    /* --- 2. OBTENER LOS PRODUCTOS --- */
+    try {
+        const response = await fetch(urlApiProductos);
+        const data = await response.json();
+
+        if (data.values && data.values.length > 1) {
+            // Transformar los datos de la hoja de cálculo
+            // Asume que las columnas son: A=ID, B=Name, C=Price, D=ImageUrl, E=Stock
+            products = data.values.slice(1).map(row => ({ // slice(1) omite la fila de encabezados
+                id: parseInt(row[0]),
+                name: row[1] || 'Producto sin nombre',
+                price: parseFloat(row[2]) || 0.0,
+                imageUrl: row[3] || '',
+                stock: row[4] || '', // Columna para la palabra "Agotado"
+            }));
+            
+        } else {
+            console.warn('No se encontraron productos o solo hay encabezados.');
+        }
+    } catch (error) {
+        console.error('Error al obtener los productos de la API:', error);
+    }
+    
+    // AHORA QUE TENEMOS LA TASA Y LOS PRODUCTOS, CONTINUAMOS CON EL CÓDIGO RESTANTE
+
+    let cart = {};
+    const productsContainer = document.getElementById('products-container');
+    const cartItemCount = document.getElementById('cart-item-count');
+    const cartModal = document.getElementById('cart-modal');
+    const closeModalButton = document.getElementById('close-modal');
+    const cartItemsList = document.getElementById('cart-items-list');
+    const totalAmountDisplay = document.getElementById('total-amount');
+    const placeOrderButton = document.getElementById('place-order-button');
+    
+    // Render products on the page
+    products.forEach(product => {
+        const productElement = document.createElement('div');
+        const priceBs = (product.price * BS_RATE).toFixed(2);
+        const isAgotado = product.stock.trim().toLowerCase() === 'agotado';
+        
+        // Determinar el contenido de la sección de stock y si los botones deben deshabilitarse
+        let stockDisplay = '';
+        let buttonDisabled = '';
+        if (isAgotado) {
+            stockDisplay = `<p class="text-sm text-red-600 font-bold mb-2">AGOTADO</p>`;
+            buttonDisabled = 'disabled'; // Deshabilitar botones si está agotado
+        } else {
+            stockDisplay = `<p class="text-sm text-gray-600 mb-2 invisible">Placeholder</p>`; // Mantener espacio para stock
+        }
+
+        productElement.className = 'product-card bg-white rounded-xl shadow-md p-4 flex flex-col items-center text-center';
+        productElement.innerHTML = `
+            <img src="${product.imageUrl}" alt="${product.name}" class="w-24 h-24 rounded-full object-cover mb-4">
+            <h3 class="text-lg font-semibold">${product.name}</h3>
+            <p class="text-sm text-gray-600 mb-1">REF: $${product.price.toFixed(2)}</p>
+            <p class="text-sm text-gray-600 mb-2">Bs. ${priceBs}</p>
+            ${stockDisplay} <div class="flex items-center gap-2">
+                <button class="bg-gray-200 text-gray-600 rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-gray-300 transition-colors ${buttonDisabled ? 'opacity-50 cursor-not-allowed' : ''}" data-id="${product.id}" data-action="decrease" ${buttonDisabled ? 'disabled' : ''}>-</button>
+                <span id="quantity-${product.id}" class="w-8 text-center text-lg font-medium">0</span>
+                <button class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold text-lg hover:bg-indigo-600 transition-colors ${buttonDisabled ? 'opacity-50 cursor-not-allowed' : ''}" data-id="${product.id}" data-action="increase" ${buttonDisabled ? 'disabled' : ''}>+</button>
+            </div>
+        `;
+        productsContainer.appendChild(productElement);
+    });
+
+    // Handle quantity changes
+    productsContainer.addEventListener('click', (e) => {
+        const button = e.target.closest('button');
+        if (!button || button.disabled) return; // Se añade la verificación de 'disabled'
+
+        const productId = parseInt(button.dataset.id);
+        const action = button.dataset.action;
+        const product = products.find(p => p.id === productId);
+
+        if (action === 'increase') {
+            if (cart[productId]) {
+                cart[productId].quantity++;
+            } else {
+                cart[productId] = { ...product, quantity: 1 };
+            }
+        } else if (action === 'decrease') {
+            if (cart[productId] && cart[productId].quantity > 0) {
+                cart[productId].quantity--;
+                if (cart[productId].quantity === 0) {
+                    delete cart[productId];
+                }
+            }
+        }
+
+        updateCartDisplay();
+    });
+
+    // ... EL RESTO DEL CÓDIGO PERMANECE IGUAL (updateCartDisplay, updateCartModal, eventos de modal, placeOrderButton) ...
+    // ... Asegúrate de que las funciones updateCartDisplay y updateCartModal usen la variable 'products' globalmente disponible.
+
+    function updateCartDisplay() {
+        let totalItems = 0;
+        products.forEach(product => {
+            const quantity = cart[product.id] ? cart[product.id].quantity : 0;
+            totalItems += quantity;
+            const quantitySpan = document.getElementById(`quantity-${product.id}`);
+            if (quantitySpan) {
+                quantitySpan.textContent = quantity;
+            }
+        });
+
+        cartItemCount.textContent = totalItems;
+        cartItemCount.style.display = totalItems > 0 ? 'flex' : 'none';
+        updateCartModal();
+    }
+
+    function updateCartModal() {
+        cartItemsList.innerHTML = '';
+        let totalAmountUSD = 0;
+        const itemsInCart = Object.values(cart);
+
+        if (itemsInCart.length === 0) {
+            cartItemsList.innerHTML = '<p class="text-center text-gray-500">Tu carrito está vacío.</p>';
+            placeOrderButton.disabled = true;
+            placeOrderButton.classList.add('opacity-50', 'cursor-not-allowed');
+        } else {
+            placeOrderButton.disabled = false;
+            placeOrderButton.classList.remove('opacity-50', 'cursor-not-allowed');
+            itemsInCart.forEach(item => {
+                const totalItemPriceUSD = item.price * item.quantity;
+                totalAmountUSD += totalItemPriceUSD;
+                const totalItemPriceBs = (totalItemPriceUSD * BS_RATE).toFixed(2);
+                const itemElement = document.createElement('li');
+                itemElement.className = 'flex justify-between items-center py-2 border-b border-gray-200 last:border-b-0';
+                itemElement.innerHTML = `
+                    <div class="flex-1">
+                        <span class="font-semibold">${item.name}</span>
+                        <span class="text-sm text-gray-500"> x${item.quantity}</span>
+                    </div>
+                    <div class="flex flex-col items-end">
+                        <span class="text-gray-700 font-medium">REF: $${totalItemPriceUSD.toFixed(2)}</span>
+                        <span class="text-gray-500 text-sm">Bs. ${totalItemPriceBs}</span>
+                    </div>
+                `;
+                cartItemsList.appendChild(itemElement);
+            });
+        }
+        const totalAmountBs = (totalAmountUSD * BS_RATE).toFixed(2);
+        totalAmountDisplay.innerHTML = `
+            <span class="font-bold">Total:</span>
+            <div class="flex flex-col items-end">
+                <span class="font-medium">REF: $${totalAmountUSD.toFixed(2)}</span>
+                <span class="text-sm text-gray-500">Bs. ${totalAmountBs}</span>
+            </div>
+        `;
+    }
+
+    // Show cart modal
+    document.getElementById('cart-icon-button').addEventListener('click', () => {
+        cartModal.classList.remove('hidden');
+        updateCartModal();
+    });
+
+    // Close cart modal
+    closeModalButton.addEventListener('click', () => {
+        cartModal.classList.add('hidden');
+    });
+
+    // Place order logic - now it sends a WhatsApp message
+    placeOrderButton.addEventListener('click', () => {
+        const phoneNumber = '584141398895';
+        const itemsInCart = Object.values(cart);
+        let totalAmountUSD = 0;
+
+        let message = `¡Hola! Me gustaría hacer un pedido.\n\n`;
+        message += `*Fecha:* ${new Date().toLocaleDateString()}\n\n`;
+        message += `*Resumen del Pedido:*\n`;
+
+        itemsInCart.forEach(item => {
+            const totalItemPriceUSD = item.price * item.quantity;
+            totalAmountUSD += totalItemPriceUSD;
+            const totalItemPriceBs = (totalItemPriceUSD * BS_RATE).toFixed(2);
+            message += `  - ${item.name} (x${item.quantity})\n`;
+            message += `    REF: $${totalItemPriceUSD.toFixed(2)} / Bs. ${totalItemPriceBs}\n\n`;
+        });
+
+        const totalAmountBs = (totalAmountUSD * BS_RATE).toFixed(2);
+        message += `\n*Total:*\n`;
+        message += `  REF: $${totalAmountUSD.toFixed(2)}\n`;
+        message += `  Bs. ${totalAmountBs}\n`;
+        
+        const encodedMessage = encodeURIComponent(message);
+        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+
+        window.open(whatsappUrl, '_blank');
+        
+        cart = {};
+        updateCartDisplay();
+        cartModal.classList.add('hidden');
+    });
+
+});
+    </script>
+
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8 sticky top-0">
+        <header class="flex justify-between items-center py-4 px-2 border-b-2 border-gray-200 mb-6 bg-white sticky top-0">
+            <img src="https://d1yei2z3i6k35z.cloudfront.net/1007876/6499d870f27d9_AndiPan1.png" alt="Logo de la tienda" class="h-10 sm:h-12 w-auto">
+            <h2 class="text-xl font-semibold">Pedidos en Línea</h2>
+            <div class="relative">
+                <button id="cart-icon-button" class="bg-gray-100 p-2 rounded-full hover:bg-gray-200 transition-colors relative">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.182 1.254.125 1.745-.246.319-.232.748-.008 1.096c.219.348.563.568.956.568h8.568c.393 0 .737-.22.956-.568.224-.348.238-.777-.008-1.096L16 13h2" />
+                    </svg>
+                    <span id="cart-item-count" class="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center hidden">0</span>
+                </button>
+            </div>
+        </header>
+        
+        <!-- Precio deo dolar y whatsapp-->    
+        <div class=" m-4 border-l-4 border-sky-500 aspect-ratio bg-[#ddffff] p-4">
+            <div class=""><p class=" text-center text-sm font-semibold ">TASA B.C.V.: <span id="tasa"></span></p></div>
+        </div>     
+            <div class="m-4 text-center">
+                <a href="https://wa.me/584141398895" 
+                   class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full inline-flex items-center">
+                   <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                   <path d="M17.403 2.597a8.995 8.995 0 00-12.72 0l-5.657 5.657c-3.515 3.515-3.515 9.213 0 12.728l5.657-5.657a8.995 8.995 0 0012.72-12.72l-5.657 5.657z"></path>
+                   </svg>
+                   <span>WhatsApp</span>
+                </a>
+            </div> 
+        
+        <div id="products-container" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8">
+            </div>
+
+        <div id="cart-modal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
+            <div class="bg-white rounded-xl shadow-lg w-full max-w-md p-6 relative">
+                <button id="close-modal" class="absolute top-4 right-4 text-gray-500 hover:text-gray-700 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                </button>
+                <h2 class="text-2xl font-bold mb-4">Tu Pedido</h2>
+                <p> $/Bs B.C.V.  <span id="tasa1"></span></p>
+                <ul id="cart-items-list" class="space-y-4 max-h-64 overflow-y-auto mb-4">
+                    </ul>
+                <div class="border-t-2 border-gray-200 pt-4 flex justify-between items-center font-bold text-lg" id="total-amount">
+                    </div>
+                <button id="place-order-button" class="order-button w-full mt-6 py-3 px-6 bg-primary text-white font-bold rounded-lg hover:bg-indigo-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed">
+                    Hacer Pedido
+                </button>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
