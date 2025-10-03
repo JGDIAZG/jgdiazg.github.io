@@ -89,7 +89,7 @@
             products = data.values.slice(1).map(row => ({ // slice(1) omite la fila de encabezados
                 id: parseInt(row[0]),
                 name: row[1] || 'Producto sin nombre',
-                uni_med:[2] || 'sin nombre',
+                uni_med: row[2] || 'sin nombre',
                 price: parseFloat(row[3]) || 0.0,
                 imageUrl: row[4] || '',
                 stock: row[5] || '', // Columna para la palabra "Agotado"
@@ -118,7 +118,7 @@
         const productElement = document.createElement('div');
         const priceBs = (product.price * BS_RATE).toFixed(2);
         const isAgotado = product.stock.trim().toLowerCase() === 'agotado';
-        //const presentacion = (uni_med);
+        
 
         // Determinar el contenido de la sección de stock y si los botones deben deshabilitarse
         let stockDisplay = '';
@@ -134,7 +134,7 @@
         productElement.innerHTML = `
             <img src="${product.imageUrl}" alt="${product.name}" class="w-24 h-24 rounded-full object-cover mb-4">
             <h3 class="text-lg font-semibold">${product.name}</h3>
-            <p>${product.uni_med}</p>
+            <p class="text-sm text-gray-600 mb-1>${product.uni_med}</p>
             <p class="text-sm text-gray-600 mb-1">REF: $${product.price.toFixed(2)}</p>
             <p class="text-sm text-gray-600 mb-2">Bs. ${priceBs}</p>
             ${stockDisplay} <div class="flex items-center gap-2">
