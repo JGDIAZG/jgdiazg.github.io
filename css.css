@@ -53,18 +53,5 @@
         .w3-bar .w3-button {
             padding: 16px;
         }
-        @media (max-width: 600px) {
-  h1 {
-    font-size: 3rem !important; /* Reduce el tamaño en móviles */
-    line-height: 1.2;          /* Ajusta el espacio entre líneas */
-  }
-}
-
-/* Asegura que el overlay cubra el contenedor */
-.hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
+        
+        
