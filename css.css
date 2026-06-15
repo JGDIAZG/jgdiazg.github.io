@@ -1,0 +1,55 @@
+:root {
+            --primary-red: #d32f2f;
+            --primary-orange: #fc820c;
+            --surface: #fcf9f8;
+            --on-surface: #1b1c1c;
+        }
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background-color: var(--surface);
+            color: var(--on-surface);
+        }
+        h1, h2, h3, .font-headline {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-weight: 800;
+        }
+        .text-red { color: var(--primary-red) !important; }
+        .bg-red { background-color: var(--primary-red) !important; }
+        .text-orange { color: var(--primary-orange) !important; }
+        .bg-orange { background-color: var(--primary-orange) !important; }
+        
+        .hard-shadow {
+            box-shadow: 4px 4px 0px 0px rgba(0, 0, 0, 1);
+        }
+        .btn-hard:hover {
+            box-shadow: 6px 6px 0px 0px rgba(0, 0, 0, 1);
+            transform: translate(-2px, -2px);
+        }
+        .nav-link {
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            font-size: 14px;
+        }
+        .hero-overlay {
+            background: rgba(0, 0, 0, 0.5);
+            height: 100%;
+        }
+        .grill-pattern {
+            background-image: url('https://www.transparenttextures.com/patterns/diagonal-stripes.png');
+        }
+        .material-symbols-outlined {
+            vertical-align: middle;
+            font-size: 20px;
+        }
+        .product-card {
+            border: 1px solid #e5e2e1;
+            transition: border-color 0.3s;
+        }
+        .product-card:hover {
+            border-color: var(--primary-red);
+        }
+        .w3-bar .w3-button {
+            padding: 16px;
+        }
