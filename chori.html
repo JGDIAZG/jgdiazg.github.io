@@ -1,221 +1,277 @@
-<!DOCTYPE html><html lang="es"><head>
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>Andi Embutidos | Sabor Tradicional</title>
-<!-- W3.CSS Framework -->
-<link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
-<!-- Fonts -->
-<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&amp;family=Work+Sans:wght@400;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
-<link href="css.css" rel="stylesheet">
-<style>
-        
-</style>
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Andi Embutidos | Sabor Tradicional</title>
+    <!-- W3.CSS Framework -->
+    <link href="https://www.w3schools.com/w3css/4/w3.css" rel="stylesheet">
+    <!-- Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@700;800&amp;family=Work+Sans:wght@400;600&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet">
+    <link href="css.css" rel="stylesheet">
+    <style>
+
+    </style>
 </head>
+
 <body>
-<!-- Header -->
-<header class="w3-white w3-card-2 w3-top">
-<div class="w3-content" style="max-width:1200px">
-<div class="w3-bar w3-padding-16">
-<a class="w3-bar-item w3-button font-headline text-red w3-xlarge" href="#" style="text-decoration:none">ANDI EMBUTIDOS</a>
-<!-- Desktop Nav -->
-<div class="w3-right w3-hide-small">
+    <!-- Header -->
+    <header class="w3-white w3-card-2 w3-top">
+        <div class="w3-content" style="max-width:1200px">
+            <div class="w3-bar w3-padding-16">
+                <a class="w3-bar-item w3-button font-headline text-red w3-xlarge" href="#"
+                    style="text-decoration:none">ANDI EMBUTIDOS</a>
+                <!-- Desktop Nav -->
+                <div class="w3-right w3-hide-small">
 
 
 
-<a class="w3-bar-item w3-button bg-red w3-text-white hard-shadow btn-hard nav-link w3-margin-left" href="#">Ordena Ahora</a>
-<a class="w3-bar-item w3-button text-red nav-link" href="#">
-<span class="material-symbols-outlined">chat</span> WhatsApp
+                    <a class="w3-bar-item w3-button bg-red w3-text-white hard-shadow btn-hard nav-link w3-margin-left"
+                        href="#">Ordena Ahora</a>
+                    <a class="w3-bar-item w3-button text-red nav-link" href="#">
+                        <span class="material-symbols-outlined">chat</span> WhatsApp
+                    </a>
+                </div>
+                <!-- Mobile Menu Icon -->
+                <a class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" href="javascript:void(0)"
+                    onclick="toggleMobileNav()">
+                    <span class="material-symbols-outlined">menu</span>
                 </a>
-</div>
-<!-- Mobile Menu Icon --> 
-<a class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" href="javascript:void(0)" onclick="toggleMobileNav()">
-<span class="material-symbols-outlined">menu</span>
-</a>
 
-</div>
-</div>
-<!-- Mobile Nav -->
-<!--<div class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium" id="mobileNav">  
+            </div>
+        </div>
+        <!-- Mobile Nav -->
+        <!--<div class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium" id="mobileNav">  
 <a class="w3-bar-item w3-button bg-red w3-text-white nav-link" href="#"></a>
 </div>-->
-</header>
-<main style="margin-top:120px">
-<!-- Hero Section -->
-<section class="w3-display-container w3-text-white" style="height: 80vh; min-height: 500px;">
-<img alt="Sizzling Chorizos" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBW_cp7_NtIN4n9hc8q9C3mrPik-7D29xt8g8WWQecBGzto4_-raqYcU7Ouyk9D0DfjjKD0WpZjw1T2JCq-zAUamRV1U8e1_kDHUhxS4FN0mAMQcfwY3bxo-_zSakFs1fX2ChKpCbyYh9mpP5yl-QLsl5DP-3S7or5obTJEwPzFl6GIWuMXM2_qoW0_6Dx-rLv6bADCRkUU4vWTi0cfxizGZPf4nch-eOYMB7BftmT4diiJgSOm39sKrQpMeYYdyI9fr3sJTnqAf24" style="width:100%; height:100%; object-fit:cover; position:absolute;">
-<div class="hero-overlay w3-display-container">
-<div class="w3-display-left w3-container w3-content" style="max-width:1200px; width:100%">
-<div class="w3-col l7 m10 s12">
-<h1 class="w3-jumbo w3-hide-small w3-animate-left">Sabor Tradicional en Cada Bocado</h1>
-<h1 class="w3-xxlarge w3-hide-medium w3-hide-large w3-animate-left">Sabor Tradicional en Cada Bocado</h1>    
-<!-- <h1 class="w3-jumbo w3-animate-left">Sabor Tradicional en Cada Bocado</h1> -->
-<p class="w3-xlarge w3-opacity-min">Descubre la excelencia de nuestros embutidos artesanales, elaborados con recetas familiares y los mejores cortes de carne seleccionada.</p>
-<div class="w3-padding-32">
-<button class="w3-button bg-red w3-text-white w3-xlarge hard-shadow btn-hard w3-margin-right" style="font-weight:600; text-transform:uppercase" onclick="document.getElementById('productos').scrollIntoView();">Ver Productos</button>
-<button class="w3-button w3-white w3-text-black w3-xlarge w3-border w3-border-black" style="font-weight:600; text-transform:uppercase" onclick="document.getElementById('nuestra-historia').scrollIntoView();">Nuestra Historia</button>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Nuestra Historia (About Section) -->
-<section id="nuestra-historia" class="w3-padding-64 w3-light-grey grill-pattern">
-<div class="w3-content" style="max-width:1200px">
-<div class="w3-row-padding w3-flex-center">
-<div class="w3-col m6 w3-margin-bottom">
-<div style="position:relative">
-<div class="w3-border w3-border-red" style="position:absolute; top:-10px; left:-10px; width:100%; height:100%; z-index:0"></div>
-<img alt="Artisanal Process" class="w3-image w3-card-4" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANnIPHBOeOLojQeRE-KzLLMpGyfn7-2N6Kw2M_KfnwAx-UBrpS7h-6E4-K2nUl6Yh2CkpuXuQdD82hjcKfmoDJWXVE1MQKi1-Z7ZrI5697MlhczcuUZYZcW7FZa_qofavOcY_V4iBHJsuZWJ7MLcHCucdDfljUlLrlfB3fEJ-INMJ0CgY9giTqzWHUsQoHpU-Az2v6S55EVuL27mZNQOxC_nZgVvcA3PPF28SLEhpqIpzbYmRw-Dduk3LNHGcEzA-0VpuqDnI5Dvk" style="width:100%; position:relative; z-index:1">
-</div>
-</div>
-<div class="w3-col m6 w3-padding-large">
-<span class="w3-tag bg-orange w3-text-white w3-margin-bottom" style="font-weight:600">EL SECRETO DEL SABOR</span>
-<h2 class="w3-xxlarge">Artesanía en Cada Proceso</h2>
-<p class="w3-large w3-text-grey">Nuestra pasión nace en el campo y termina en tu mesa. Utilizamos madera de encino seleccionada para un ahumado lento que garantiza ese aroma inconfundible y una textura que se deshace en el paladar.</p>
-<div class="w3-row-padding w3-margin-top" style="margin:0 -16px">
-<div class="w3-half w3-margin-bottom">
-<span class="material-symbols-outlined text-red">eco</span> <b>100% Natural</b>
-</div>
-<div class="w3-half w3-margin-bottom">
-<span class="material-symbols-outlined text-red">local_fire_department</span> <b>Ahumado Real</b>
-</div>
-<div class="w3-half w3-margin-bottom">
-<span class="material-symbols-outlined text-red">restaurant</span> <b>Receta Abuela</b>
-</div>
-<div class="w3-half w3-margin-bottom">
-<span class="material-symbols-outlined text-red">verified</span> <b>Premium Quality</b>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Featured Products -->
-<section id="productos" class="w3-padding-64">
-<div class="w3-content" style="max-width:1200px">
-<div class="w3-container w3-margin-bottom">
-<h2 class="w3-xxlarge w3-left">Selección Destacada</h2>
-<a class="w3-right w3-text-red w3-margin-top" href="#" style="text-decoration:none; font-weight:600">
-                    VER TODO EL CATÁLOGO <span class="material-symbols-outlined">arrow_forward</span>
-</a>
-</div>
-<div class="w3-row-padding">
-<!-- Product 1 -->
-<div class="w3-col l4 m6 w3-margin-bottom">
-<div class="w3-white w3-padding product-card">
-<div style="position:relative">
-<img alt="Traditional Chorizo" class="w3-image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaFiTuc3vWcHIKJwPwrvwz83kP02VqbupbIuDL4x0bgj-U5hOteLms9dWd1nC6r1wzMGjWfHxYjYA4P5-Aih4fTADp3EQ8XQpy3JeCFADFcbKBJXnxPtSihMu7X5gLjqiG8kqgupC2jLZ-Snwsm2aqMo447uJWyIo2hjsv6pat-qKQO4-erwdGW_F3DZJy890LnjNdOS9sP7NYOWYHf5O-emvJYXw2MmnkpZc0JijhOxKqc5moS5FJkGZJ8VE0UsK4s4T51ikwD3s">
-<span class="w3-tag bg-orange w3-text-white" style="position:absolute; top:8px; right:8px; font-size:10px">BEST SELLER</span>
-</div>
-<h3 class="w3-xlarge w3-padding-16">Traditional</h3>
-<p class="w3-text-grey">Nuestra receta original con pimentón de la vera y carne magra de cerdo.</p>
-<div class="w3-padding-16">
-<span class="w3-xlarge"><b>$12.50</b></span>
-<button class="w3-button bg-red w3-text-white w3-right hard-shadow btn-hard">ORDER</button>
-</div>
-</div>
-</div>
-<!-- Product 2 -->
-<div class="w3-col l4 m6 w3-margin-bottom">
-<div class="w3-white w3-padding product-card">
-<div style="position:relative">
-<img alt="Spicy Chorizo" class="w3-image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-KX8Eokyo3RVAiQmpbAbAkEM7f4ViELg3RqcT6P3h9r2zzpBdg3pFaUGyBfczTpjRkfVDzxEysZN52W6-4jldAt1rUvEHXK8tlREidUzbFWTbuPf_xORAzGdAbFIF_705OF-nwnkfMq_mPp4_LV1g_-6eYRodOWU88QCFyqbexa3ZZ9n2uaYtWUG-MYL1Gtbj2Osjda0859diUv9M1FRgKsfbphoRM_SIwXvikxr0Zo1MnvkFpnUlUoE6SmUHIk0eAqXAjABJUxk">
-<span class="w3-tag bg-red w3-text-white" style="position:absolute; top:8px; right:8px; font-size:10px">SPICY</span>
-</div>
-<h3 class="w3-xlarge w3-padding-16">Spicy</h3>
-<p class="w3-text-grey">Para los amantes del fuego. Infusionado con habanero y pimienta negra.</p>
-<div class="w3-padding-16">
-<span class="w3-xlarge"><b>$14.00</b></span>
-<button class="w3-button bg-red w3-text-white w3-right hard-shadow btn-hard">ORDER</button>
-</div>
-</div>
-</div>
-<!-- Product 3 -->
-<div class="w3-col l4 m6 w3-margin-bottom">
-<div class="w3-white w3-padding product-card">
-<div style="position:relative">
-<img alt="Herb Chorizo" class="w3-image" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBR1BYiOUeiS6e0Z1beQFPxjZnA8DqBXxci30ih6LGHSQMuBc6RKvU9K1ceiVKGHLJXkc_auj0zJlQxX40vrG2LlMNmzJ0RRBSlLTyKazMEqZ9DRcNMy9VRytiy1926uS_QmwGb0yD1KLAI7YhdPt3TePoTKn6tUySRVy3B8462gfJxYLD_UOadntB_3wfZHIVgpXV-PKS30AeSwRnaOKgdoLekNqo-eRAwcRemSNrFyGPGRmA5TEfekkfBknUKJ7zEQLL3OzsgpAo">
-<span class="w3-tag w3-green w3-text-white" style="position:absolute; top:8px; right:8px; font-size:10px">HERBAL</span>
-</div>
-<h3 class="w3-xlarge w3-padding-16">Herb</h3>
-<p class="w3-text-grey">Un balance perfecto de finas hierbas, ajo rostizado y vino blanco.</p>
-<div class="w3-padding-16">
-<span class="w3-xlarge"><b>$13.75</b></span>
-<button class="w3-button bg-red w3-text-white w3-right hard-shadow btn-hard">ORDER</button>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Social Feed -->
-<section class="w3-padding-64 w3-dark-grey">
-<div class="w3-content" style="max-width:1200px">
-<div class="w3-center w3-padding-32">
-<h2 class="w3-xxlarge">Síguenos en la Parrilla</h2>
-<p class="w3-large w3-opacity">Tips, recetas y momentos Andi en @AndiEmbutidos</p>
-</div>
-<div class="w3-row">
-<div class="w3-col l3 m6 s6 w3-padding-small">
-<img alt="Social Post" class="w3-hover-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkPpJgPnk3dJCVlTshEj8WARa_2eAsEe80pfbqjzxivGPAaYcrpds9EvuFWUyasF3nNTSWi7LRmHIuZ80tnPXzG2qyi5avFt6_GhtBFn9Xq4j51_K6HrVx8y6fExoqhFNKM2i6D4G0ekctCkVRcZ36_dUDpLDwWHP_LLjcbR2b7vwgcP9LpVFJxmGsiKiZbu9ActNRhXzVuYvcU4fQfuL4SfWRDXkQ9mQZcD45yyV51nYXerD8DL6Ydp0wiCt4di77b-uPRTGruNY" style="width:100%">
-</div>
-<div class="w3-col l3 m6 s6 w3-padding-small">
-<img alt="Social Post" class="w3-hover-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOmOpbRjJumEKyrIU9qLhBOXY2yjs_J_Z0F8HCUOVxy5sNhJBEdveOLH6suPRp62Fch2JuC0CT4AyeRbPbksf5G-rdp4qj8l29j004JywRKv7typPCdgJfIcRwsLhaPdLYtKQy3Dq6faiFmOmfvFNtg9PyyK2kz6CGi8b_j_C_UmjspEieZEXKh7T67VbG_5uogy4DIrjxRfNKD-bw4DMagfUsi7j7-ljYebuBzzsu6xXJEZu1Ig-vBqOstZGO_BeyhLHG1mxVCLo" style="width:100%">
-</div>
-<div class="w3-col l3 m6 s6 w3-padding-small">
-<img alt="Social Post" class="w3-hover-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAv0x7vxGVEgu3u-ATiUHiOvD_uLWGXPYylbwlxSDsl1trW2Dozh2qVd2CnkSK1dk0VfvZfEQFpEvRANz6I2dDxgghjjGs10UyPyn1QkwrJRj8B0jG1UHm5GQQgPPgBK41oGj29NWDihiVp_xQxNJrH4dmomzzpUZevMJIZrJJpC4B29T4WQ-rWvOCooc-zBi3u7hMC-uTLUF4sZFVrl60Csc7ZfF0rfxiqUQ1SiovQ8MTXj2QjVpdt3yc_kcXT-cNDEjhIhs5FcpY" style="width:100%">
-</div>
-<div class="w3-col l3 m6 s6 w3-padding-small">
-<img alt="Social Post" class="w3-hover-opacity" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxqfOS-8bme5_z1kzncwoWCBKY2iExn-C57F8DzZoECKnUbi7S0iA8empWtsimhY2cveIBcIqHe67NoUHNG5M0LDj_I-vCdLdl0S9D7vUc7mpNKXIZKTMbL56lE57vkhcObkzamzqKOWCldls2iEprFa2GEFyje4bXIfrQaJLBniypLHEDN7XEx_IjNRSWjKY-RPT9ot_lK93guabeyzFeMOqnKStFrfQbaOqmew8IglkcEqdM8qXeR8L4-NaFmOfJNWtKGshsllM" style="width:100%">
-</div>
-</div>
-<div class="w3-center w3-padding-32">
-<button class="w3-button w3-border w3-border-red text-red w3-margin-right" style="font-weight:600">
-<span class="material-symbols-outlined">videocam</span> YOUTUBE
-                </button>
-<button class="w3-button w3-border w3-border-red text-red" style="font-weight:600">
-<span class="material-symbols-outlined">photo_camera</span> INSTAGRAM
-                </button>
-</div>
-</div>
-</section>
-</main>
-<!-- WhatsApp Floating Button -->
-<a class="w3-button bg-orange w3-text-white w3-display-container hard-shadow btn-hard" href="#" style="position:fixed; bottom:32px; right:32px; width:64px; height:64px; border-radius:50%; z-index:999; display:flex; align-items:center; justify-content:center">
-<span class="material-symbols-outlined" style="font-size:32px">chat</span>
-</a>
-<!-- Footer -->
-<footer class="w3-black w3-padding-64 grill-pattern" style="border-top: 4px solid var(--primary-red)">
-<div class="w3-content w3-center" style="max-width:1200px">
-<div class="w3-margin-bottom">
-<img alt="Andi Embutidos" class="w3-circle" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGYD1MW47WKcu4jiPerPBYAwyegpkpkBM0MT8vT0298Oy-fdMWNTkvUObIzsqAcXiPqngooyEt_ZsTsMsCh-A6CzWtt1moXV2UwNQFNYUYy-npnK82u0a_oHoMDSGkB6trU4Z9bRUMQAUzskS5aM1gKWku8PANtWQ99Qy-f3xnFgmLlaJ7km0uYYjlpYQxNlhFIIHV1mZ15PBJ5dMN_J2L-OYA7BcXNFvPI6rgmGkOzvip5pbLjolwyQV4tXkNfQFM0qnwo4BT4Kc" style="width:80px; height:80px; object-fit:cover">
-</div>
-<div class="w3-padding-16">
+    </header>
+    <main style="margin-top:120px">
+        <!-- Hero Section -->
+        <section class="w3-display-container w3-text-white" style="height: 80vh; min-height: 500px;">
+            <img alt="Sizzling Chorizos"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBW_cp7_NtIN4n9hc8q9C3mrPik-7D29xt8g8WWQecBGzto4_-raqYcU7Ouyk9D0DfjjKD0WpZjw1T2JCq-zAUamRV1U8e1_kDHUhxS4FN0mAMQcfwY3bxo-_zSakFs1fX2ChKpCbyYh9mpP5yl-QLsl5DP-3S7or5obTJEwPzFl6GIWuMXM2_qoW0_6Dx-rLv6bADCRkUU4vWTi0cfxizGZPf4nch-eOYMB7BftmT4diiJgSOm39sKrQpMeYYdyI9fr3sJTnqAf24"
+                style="width:100%; height:100%; object-fit:cover; position:absolute;">
+            <div class="hero-overlay w3-display-container">
+                <div class="w3-display-left w3-container w3-content" style="max-width:1200px; width:100%">
+                    <div class="w3-col l7 m10 s12">
+                        <h1 class="w3-jumbo w3-hide-small w3-animate-left">Sabor Tradicional en Cada Bocado</h1>
+                        <h1 class="w3-xxlarge w3-hide-medium w3-hide-large w3-animate-left">Sabor Tradicional en Cada
+                            Bocado</h1>
+                        <!-- <h1 class="w3-jumbo w3-animate-left">Sabor Tradicional en Cada Bocado</h1> -->
+                        <p class="w3-xlarge w3-opacity-min">Descubre la excelencia de nuestros embutidos artesanales,
+                            elaborados con recetas familiares y los mejores cortes de carne seleccionada.</p>
+                        <div class="w3-padding-32">
+                            <button
+                                class="w3-button bg-red w3-text-white w3-xlarge hard-shadow btn-hard w3-margin-right"
+                                style="font-weight:600; text-transform:uppercase"
+                                onclick="document.getElementById('productos').scrollIntoView();">Ver Productos</button>
+                            <button class="w3-button w3-white w3-text-black w3-xlarge w3-border w3-border-black"
+                                style="font-weight:600; text-transform:uppercase"
+                                onclick="document.getElementById('nuestra-historia').scrollIntoView();">Nuestra
+                                Historia</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Nuestra Historia (About Section) -->
+        <section id="nuestra-historia" class="w3-padding-64 w3-light-grey grill-pattern">
+            <div class="w3-content" style="max-width:1200px">
+                <div class="w3-row-padding w3-flex-center">
+                    <div class="w3-col m6 w3-margin-bottom">
+                        <div style="position:relative">
+                            <div class="w3-border w3-border-red"
+                                style="position:absolute; top:-10px; left:-10px; width:100%; height:100%; z-index:0">
+                            </div>
+                            <img alt="Artisanal Process" class="w3-image w3-card-4"
+                                src="https://lh3.googleusercontent.com/aida-public/AB6AXuANnIPHBOeOLojQeRE-KzLLMpGyfn7-2N6Kw2M_KfnwAx-UBrpS7h-6E4-K2nUl6Yh2CkpuXuQdD82hjcKfmoDJWXVE1MQKi1-Z7ZrI5697MlhczcuUZYZcW7FZa_qofavOcY_V4iBHJsuZWJ7MLcHCucdDfljUlLrlfB3fEJ-INMJ0CgY9giTqzWHUsQoHpU-Az2v6S55EVuL27mZNQOxC_nZgVvcA3PPF28SLEhpqIpzbYmRw-Dduk3LNHGcEzA-0VpuqDnI5Dvk"
+                                style="width:100%; position:relative; z-index:1">
+                        </div>
+                    </div>
+                    <div class="w3-col m6 w3-padding-large">
+                        <span class="w3-tag bg-orange w3-text-white w3-margin-bottom" style="font-weight:600">EL SECRETO
+                            DEL SABOR</span>
+                        <h2 class="w3-xxlarge">Artesanía en Cada Proceso</h2>
+                        <p class="w3-large w3-text-grey">Nuestra pasión nace en el campo y termina en tu mesa.
+                            Utilizamos madera de encino seleccionada para un ahumado lento que garantiza ese aroma
+                            inconfundible y una textura que se deshace en el paladar.</p>
+                        <div class="w3-row-padding w3-margin-top" style="margin:0 -16px">
+                            <div class="w3-half w3-margin-bottom">
+                                <span class="material-symbols-outlined text-red">eco</span> <b>100% Natural</b>
+                            </div>
+                            <div class="w3-half w3-margin-bottom">
+                                <span class="material-symbols-outlined text-red">local_fire_department</span> <b>Ahumado
+                                    Real</b>
+                            </div>
+                            <div class="w3-half w3-margin-bottom">
+                                <span class="material-symbols-outlined text-red">restaurant</span> <b>Receta Abuela</b>
+                            </div>
+                            <div class="w3-half w3-margin-bottom">
+                                <span class="material-symbols-outlined text-red">verified</span> <b>Premium Quality</b>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Featured Products -->
+        <section id="productos" class="w3-padding-64">
+            <div class="w3-content" style="max-width:1200px">
+                <div class="w3-container w3-margin-bottom">
+                    <h2 class="w3-xxlarge w3-left">Selección Destacada</h2>
+                    <a class="w3-right w3-text-red w3-margin-top" href="#"
+                        style="text-decoration:none; font-weight:600">
+                        VER TODO EL CATÁLOGO <span class="material-symbols-outlined">arrow_forward</span>
+                    </a>
+                </div>
+                <div class="w3-row-padding">
+                    <!-- Product 1 -->
+                    <div class="w3-col l4 m6 w3-margin-bottom">
+                        <div class="w3-white w3-padding product-card">
+                            <div style="position:relative">
+                                <img alt="Traditional Chorizo" class="w3-image"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaFiTuc3vWcHIKJwPwrvwz83kP02VqbupbIuDL4x0bgj-U5hOteLms9dWd1nC6r1wzMGjWfHxYjYA4P5-Aih4fTADp3EQ8XQpy3JeCFADFcbKBJXnxPtSihMu7X5gLjqiG8kqgupC2jLZ-Snwsm2aqMo447uJWyIo2hjsv6pat-qKQO4-erwdGW_F3DZJy890LnjNdOS9sP7NYOWYHf5O-emvJYXw2MmnkpZc0JijhOxKqc5moS5FJkGZJ8VE0UsK4s4T51ikwD3s">
+                                <span class="w3-tag bg-orange w3-text-white"
+                                    style="position:absolute; top:8px; right:8px; font-size:10px">BEST SELLER</span>
+                            </div>
+                            <h3 class="w3-xlarge w3-padding-16">Traditional</h3>
+                            <p class="w3-text-grey">Nuestra receta original con pimentón de la vera y carne magra de
+                                cerdo.</p>
+                            <div class="w3-padding-16">
+                                <span class="w3-xlarge"><b>$12.50</b></span>
+                                <button
+                                    class="w3-button bg-red w3-text-white w3-right hard-shadow btn-hard">ORDER</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product 2 -->
+                    <div class="w3-col l4 m6 w3-margin-bottom">
+                        <div class="w3-white w3-padding product-card">
+                            <div style="position:relative">
+                                <img alt="Spicy Chorizo" class="w3-image"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-KX8Eokyo3RVAiQmpbAbAkEM7f4ViELg3RqcT6P3h9r2zzpBdg3pFaUGyBfczTpjRkfVDzxEysZN52W6-4jldAt1rUvEHXK8tlREidUzbFWTbuPf_xORAzGdAbFIF_705OF-nwnkfMq_mPp4_LV1g_-6eYRodOWU88QCFyqbexa3ZZ9n2uaYtWUG-MYL1Gtbj2Osjda0859diUv9M1FRgKsfbphoRM_SIwXvikxr0Zo1MnvkFpnUlUoE6SmUHIk0eAqXAjABJUxk">
+                                <span class="w3-tag bg-red w3-text-white"
+                                    style="position:absolute; top:8px; right:8px; font-size:10px">SPICY</span>
+                            </div>
+                            <h3 class="w3-xlarge w3-padding-16">Spicy</h3>
+                            <p class="w3-text-grey">Para los amantes del fuego. Infusionado con habanero y pimienta
+                                negra.</p>
+                            <div class="w3-padding-16">
+                                <span class="w3-xlarge"><b>$14.00</b></span>
+                                <button
+                                    class="w3-button bg-red w3-text-white w3-right hard-shadow btn-hard">ORDER</button>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Product 3 -->
+                    <div class="w3-col l4 m6 w3-margin-bottom">
+                        <div class="w3-white w3-padding product-card">
+                            <div style="position:relative">
+                                <img alt="Herb Chorizo" class="w3-image"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBR1BYiOUeiS6e0Z1beQFPxjZnA8DqBXxci30ih6LGHSQMuBc6RKvU9K1ceiVKGHLJXkc_auj0zJlQxX40vrG2LlMNmzJ0RRBSlLTyKazMEqZ9DRcNMy9VRytiy1926uS_QmwGb0yD1KLAI7YhdPt3TePoTKn6tUySRVy3B8462gfJxYLD_UOadntB_3wfZHIVgpXV-PKS30AeSwRnaOKgdoLekNqo-eRAwcRemSNrFyGPGRmA5TEfekkfBknUKJ7zEQLL3OzsgpAo">
+                                <span class="w3-tag w3-green w3-text-white"
+                                    style="position:absolute; top:8px; right:8px; font-size:10px">HERBAL</span>
+                            </div>
+                            <h3 class="w3-xlarge w3-padding-16">Herb</h3>
+                            <p class="w3-text-grey">Un balance perfecto de finas hierbas, ajo rostizado y vino blanco.
+                            </p>
+                            <div class="w3-padding-16">
+                                <span class="w3-xlarge"><b>$13.75</b></span>
+                                <button
+                                    class="w3-button bg-red w3-text-white w3-right hard-shadow btn-hard">ORDER</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Social Feed -->
+        <section class="w3-padding-64 w3-dark-grey">
+            <div class="w3-content" style="max-width:1200px">
+                <div class="w3-center w3-padding-32">
+                    <h2 class="w3-xxlarge">Síguenos en la Parrilla</h2>
+                    <p class="w3-large w3-opacity">Tips, recetas y momentos Andi en @AndiEmbutidos</p>
+                </div>
+                <div class="w3-row">
+                    <div class="w3-col l3 m6 s6 w3-padding-small">
+                        <img alt="Social Post" class="w3-hover-opacity"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBkPpJgPnk3dJCVlTshEj8WARa_2eAsEe80pfbqjzxivGPAaYcrpds9EvuFWUyasF3nNTSWi7LRmHIuZ80tnPXzG2qyi5avFt6_GhtBFn9Xq4j51_K6HrVx8y6fExoqhFNKM2i6D4G0ekctCkVRcZ36_dUDpLDwWHP_LLjcbR2b7vwgcP9LpVFJxmGsiKiZbu9ActNRhXzVuYvcU4fQfuL4SfWRDXkQ9mQZcD45yyV51nYXerD8DL6Ydp0wiCt4di77b-uPRTGruNY"
+                            style="width:100%">
+                    </div>
+                    <div class="w3-col l3 m6 s6 w3-padding-small">
+                        <img alt="Social Post" class="w3-hover-opacity"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOmOpbRjJumEKyrIU9qLhBOXY2yjs_J_Z0F8HCUOVxy5sNhJBEdveOLH6suPRp62Fch2JuC0CT4AyeRbPbksf5G-rdp4qj8l29j004JywRKv7typPCdgJfIcRwsLhaPdLYtKQy3Dq6faiFmOmfvFNtg9PyyK2kz6CGi8b_j_C_UmjspEieZEXKh7T67VbG_5uogy4DIrjxRfNKD-bw4DMagfUsi7j7-ljYebuBzzsu6xXJEZu1Ig-vBqOstZGO_BeyhLHG1mxVCLo"
+                            style="width:100%">
+                    </div>
+                    <div class="w3-col l3 m6 s6 w3-padding-small">
+                        <img alt="Social Post" class="w3-hover-opacity"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAv0x7vxGVEgu3u-ATiUHiOvD_uLWGXPYylbwlxSDsl1trW2Dozh2qVd2CnkSK1dk0VfvZfEQFpEvRANz6I2dDxgghjjGs10UyPyn1QkwrJRj8B0jG1UHm5GQQgPPgBK41oGj29NWDihiVp_xQxNJrH4dmomzzpUZevMJIZrJJpC4B29T4WQ-rWvOCooc-zBi3u7hMC-uTLUF4sZFVrl60Csc7ZfF0rfxiqUQ1SiovQ8MTXj2QjVpdt3yc_kcXT-cNDEjhIhs5FcpY"
+                            style="width:100%">
+                    </div>
+                    <div class="w3-col l3 m6 s6 w3-padding-small">
+                        <img alt="Social Post" class="w3-hover-opacity"
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxqfOS-8bme5_z1kzncwoWCBKY2iExn-C57F8DzZoECKnUbi7S0iA8empWtsimhY2cveIBcIqHe67NoUHNG5M0LDj_I-vCdLdl0S9D7vUc7mpNKXIZKTMbL56lE57vkhcObkzamzqKOWCldls2iEprFa2GEFyje4bXIfrQaJLBniypLHEDN7XEx_IjNRSWjKY-RPT9ot_lK93guabeyzFeMOqnKStFrfQbaOqmew8IglkcEqdM8qXeR8L4-NaFmOfJNWtKGshsllM"
+                            style="width:100%">
+                    </div>
+                </div>
+                <div class="w3-center w3-padding-32">
+                    <button class="w3-button w3-border w3-border-red text-red w3-margin-right" style="font-weight:600">
+                        <span class="material-symbols-outlined">videocam</span> YOUTUBE
+                    </button>
+                    <button class="w3-button w3-border w3-border-red text-red" style="font-weight:600">
+                        <span class="material-symbols-outlined">photo_camera</span> INSTAGRAM
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- WhatsApp Floating Button -->
+    <a class="w3-button bg-orange w3-text-white w3-display-container hard-shadow btn-hard" href="#"
+        style="position:fixed; bottom:32px; right:32px; width:64px; height:64px; border-radius:50%; z-index:999; display:flex; align-items:center; justify-content:center">
+        <span class="material-symbols-outlined" style="font-size:32px">chat</span>
+    </a>
+    <!-- Footer -->
+    <footer class="w3-black w3-padding-64 grill-pattern" style="border-top: 4px solid var(--primary-red)">
+        <div class="w3-content w3-center" style="max-width:1200px">
+            <div class="w3-margin-bottom">
+                <img alt="Andi Embutidos" class="w3-circle"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGYD1MW47WKcu4jiPerPBYAwyegpkpkBM0MT8vT0298Oy-fdMWNTkvUObIzsqAcXiPqngooyEt_ZsTsMsCh-A6CzWtt1moXV2UwNQFNYUYy-npnK82u0a_oHoMDSGkB6trU4Z9bRUMQAUzskS5aM1gKWku8PANtWQ99Qy-f3xnFgmLlaJ7km0uYYjlpYQxNlhFIIHV1mZ15PBJ5dMN_J2L-OYA7BcXNFvPI6rgmGkOzvip5pbLjolwyQV4tXkNfQFM0qnwo4BT4Kc"
+                    style="width:80px; height:80px; object-fit:cover">
+            </div>
+            <div class="w3-padding-16">
 
 
-<a class="w3-button nav-link" href="#">Privacy Policy</a>
-<a class="w3-button nav-link" href="#">Terms of Service</a>
-</div>
-<p class="w3-large w3-opacity">© 2024 Andi Embutidos. Traditional Flavors, Modern Quality.</p>
-<div class="w3-padding-32">
-<div class="w3-bar">
-<span class="w3-bar-item w3-button bg-red w3-circle w3-margin-right"><span class="material-symbols-outlined">location_on</span></span>
-<span class="w3-bar-item w3-button bg-red w3-circle w3-margin-right"><span class="material-symbols-outlined">mail</span></span>
-<span class="w3-bar-item w3-button bg-red w3-circle"><span class="material-symbols-outlined">phone</span></span>
-</div>
-</div>
-</div>
-</footer>
-<script>
-    function toggleMobileNav() {
-        var x = document.getElementById("mobileNav");
-        if (x.className.indexOf("w3-show") == -1) {
-            x.className += " w3-show";
-        } else {
-            x.className = x.className.replace(" w3-show", "");
+                <a class="w3-button nav-link" href="#">Privacy Policy</a>
+                <a class="w3-button nav-link" href="#">Terms of Service</a>
+            </div>
+            <p class="w3-large w3-opacity">© 2024 Andi Embutidos. Traditional Flavors, Modern Quality.</p>
+            <div class="w3-padding-32">
+                <div class="w3-bar">
+                    <span class="w3-bar-item w3-button bg-red w3-circle w3-margin-right"><span
+                            class="material-symbols-outlined">location_on</span></span>
+                    <span class="w3-bar-item w3-button bg-red w3-circle w3-margin-right"><span
+                            class="material-symbols-outlined">mail</span></span>
+                    <span class="w3-bar-item w3-button bg-red w3-circle"><span
+                            class="material-symbols-outlined">phone</span></span>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script>
+        function toggleMobileNav() {
+            var x = document.getElementById("mobileNav");
+            if (x.className.indexOf("w3-show") == -1) {
+                x.className += " w3-show";
+            } else {
+                x.className = x.className.replace(" w3-show", "");
+            }
         }
-    }
-</script>
+    </script>
 
 
-</body></html>
+</body>
+
+</html>
